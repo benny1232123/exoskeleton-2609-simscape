@@ -39,6 +39,10 @@
 
 ![自由落体关键帧](docs/assets/multidof_drop_strip.png)
 
+同一模型**仅保留髋关节（2-DOF）**时的步态演示：
+
+![2-DOF 步态](docs/assets/gait.gif)
+
 ---
 
 ## 质量属性
