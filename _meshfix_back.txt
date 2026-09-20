@@ -1,0 +1,8 @@
+== meshfix probe: back ==
+import+sync: 30.7 s ; volumes=260 surfaces=29916
+first failure: Impossible to mesh periodic surface 19349
+  surface 19349 type=Cone
+  param bounds: [[-4.148114002155978e-05, -0.1414218945549805], [0.8667408334284517, 0.14142149039117177]]
+  periodicLinks failed: type object 'model' has no attribute 'getPeriodicLinks'
+  parent volumes: [135]
+    vol 135 vol=128.086799561 mm^3 diag=18.754 mm name='Shapes/Open CASCADE STEP translator 7.5 1.132.1.1'

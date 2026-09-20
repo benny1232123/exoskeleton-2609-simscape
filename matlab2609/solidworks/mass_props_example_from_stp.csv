@@ -1,0 +1,6 @@
+﻿group,part,material,mass_kg,cx_mm,cy_mm,cz_mm,Ixx_com,Iyy_com,Izz_com,Ixy_com,Ixz_com,Iyz_com,Ixx_O,Iyy_O,Izz_O,Ixy_O,Ixz_O,Iyz_O,note
+leg_L,leg_L_total,from_STP_density_table,0.312589,-144.0935,111.3486,-161.2717,,,6631.471558,,,,,,16997.395396,,,,"from_local_STP_parse; hip_axis_point_mm=[113.6974, 0.2396, -52.9681]; hip_axis_dir=[-0.0021267, -0.99995673, -0.00905622]"
+leg_R,leg_R_total,from_STP_density_table,0.312589,-144.0895,111.3570,161.2816,,,6631.288354,,,,,,16997.437343,,,,"from_local_STP_parse; hip_axis_point_mm=[113.6974, 0.2396, -52.9681]; hip_axis_dir=[-0.0021267, -0.99995673, -0.00905622]"
+motor_L,motor_L_total,from_STP_density_table,0.355676,5.7753,-2.8440,-195.4198,,,363.758929,,,,,,378.498892,,,,"from_local_STP_parse; hip_axis_point_mm=[113.6974, 0.2396, -52.9681]; hip_axis_dir=[-0.0021267, -0.99995673, -0.00905622]"
+motor_R,motor_R_total,from_STP_density_table,0.392793,5.9483,-3.1387,194.3704,,,421.570239,,,,,,439.337971,,,,"from_local_STP_parse; hip_axis_point_mm=[113.6974, 0.2396, -52.9681]; hip_axis_dir=[-0.0021267, -0.99995673, -0.00905622]"
+back,back_total,from_STP_density_table,1.955848,152.4708,-47.0579,-1.8487,,,3977.968805,,,,,,53777.375260,,,,"from_local_STP_parse; hip_axis_point_mm=[113.6974, 0.2396, -52.9681]; hip_axis_dir=[-0.0021267, -0.99995673, -0.00905622]"

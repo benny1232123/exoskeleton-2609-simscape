@@ -1,0 +1,39 @@
+== anim_exo_3d ==
+19-Sep-2026 14:44:59
+preset=drop  source=analytic  view=side  fps=25  reduce=1.00
+outdir=C:\Users\29408\Desktop\外骨骼\matlab2609\out_simscape
+note: 无桌面(-batch) -> 全部离屏渲染，不经 Mechanics Explorer
+
+motion : analytic : ode45 on plant_params.csv (no Simscape, same ODE)
+  N=63   t in [0.0000 2.4800] s
+  max|q_L| = 1.818159 rad    max|q_R| = 1.818455 rad
+  max|w_L| = 4.980222 rad/s  max|w_R| = 4.980891 rad/s
+
+-- hip joint (world frame, m) --
+  origin = [0.113697402 0.000239573 -0.052968076]
+  axis   = [-0.002126699 -0.999956730 -0.009056215]   norm 1.000000000000
+  meshes = base, leg_L, leg_R
+
+-- meshes --
+  base   tris  748061 ->  748061   verts  372314   read+dec 0.7 s
+  leg_L  tris   47606 ->   47606   verts   23749   read+dec 0.0 s
+  leg_R  tris   47602 ->   47602   verts   23747   read+dec 0.0 s
+
+  sign trial s=+1 : q=+0.7: render +0.008981184 vs analytic +0.008981184 q=-1.2: render -0.176310429 vs analytic -0.176310430   |e|max = 6.368e-10 m
+  sign trial s=-1 : q=+0.7: render -0.179852073 vs analytic +0.008981184 q=-1.2: render +0.096889111 vs analytic -0.176310430   |e|max = 2.732e-01 m
+  => 采用 s = +1   residual = 6.368e-10 m
+  SGN_CHECK_OK
+
+bbox x[-0.2412 0.4294]  y[-0.2450 0.2454]  z[-0.4686 0.0872] m   view=side
+
+  frame  20/ 63   104 ms
+  frame  40/ 63   121 ms
+  frame  60/ 63   92 ms
+  frame  63/ 63   103 ms
+
+render : 63 frames, mean 123 ms/frame, max 612 ms
+mp4    -> 
+gif    -> 
+
+ANIM_EXO_3D_DONE
+log -> C:\Users\29408\Desktop\外骨骼\matlab2609\out_simscape\anim_exo_3d_drop.txt

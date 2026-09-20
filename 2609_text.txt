@@ -1,0 +1,1127 @@
+
+
+===== PAGE 1 =====
+Assistance Torque Estimation via Dynamics-Aware Optimization for
+Lower-Limb Exoskeleton in Complex Environments
+Xiao-Yin Liu1,2, Guotao Li1,2 ∗, Weiqun Wang1,2 and Zeng-Guang Hou1,2 ∗
+Abstract— Ground-truth human joint torque estimation re-
+lies on motion capture systems, which suffer from limited
+outdoor usability and significant deployment expenses. Fur-
+thermore, direct scaling of ground-truth joint torques to obtain
+motor torque commands is not necessarily the optimal strategy.
+To address the aforementioned limitations, inspired by the
+human motion generation process, this paper proposes a novel
+assistance torque estimation method based on the dynamic
+model. From an optimization perspective, the proposed method
+directly generates motor-assist torque and lowers the cost
+of data acquisition. Then, a data-driven assistance torque
+prediction network is trained to enable accurate real-time
+prediction under complex outdoor environments. Experimental
+results demonstrate that optimized (estimated) assistance torque
+exhibits better phase consistency with gait trajectories and
+better alignment with task characteristics. Relative to the Zero
+torque condition, the predicted torque can decrease metabolic
+rate by 11.8% ∼17.7%, heart rate by 8.9% ∼14.3%, and peak
+muscle activation levels by 28.2% ∼54.0%, respectively. This
+provides a new perspective for low-cost adaptive exoskeleton
+assistance. Related Website: Movie.
+I. INTRODUCTION
+The core of human-robot interaction lies in the robot’s
+torque output matching human motion intentions [1], [10].
+However, human joint torque cannot be measured directly
+and is most often inferred from high-cost motion capture
+systems (expensive plantar force plates) [2], which limits the
+range of practical application scenarios for robots. To enable
+the practical deployment of exoskeletons in complex un-
+structured environments, a low-cost, readily deployable data
+acquisition method is critically important [19]. Extensive
+research has been conducted on torque estimation methods
+in the existing literature.
+Methods for joint torque estimation can be broadly clas-
+sified into two categories: inverse dynamics (ID)-based
+approaches [2], [6], [7], [8], [20] and electromyography
+(EMG)-based approaches [4], [3], [5]. The first type of
+method, ID-based approaches, relies on measurements of
+human kinematic parameters and ground reaction forces [6].
+Kinematic data can be captured via motion capture systems
+or inertial measurement units (IMUs), while ground reaction
+forces are typically measured using foot pressure sensors [7].
+While serving as the gold standard for ground-truth torque
+measurement [2], these methods incur high deployment costs
+and have limited utility in practical assistance scenarios.
+For the second type of methods, EMG-based approaches
+*Corresponding Authors (guotao.li@ia.ac.cn, zengguang.hou@ia.ac.cn).
+1State Key Laboratory of Multimodal Artificial Intelligence Systems,
+Institute of Automation, Chinese Academy of Sciences, Beijing, China.
+2The School of Artificial Intelligence, University of Chinese Academy
+of Sciences, Beijing, China.
+Cerebral Cortex
+Cerebellum
+Spinal Cord
+Thigh Muscles
+Transmission 
+Execution 
+Modulation 
+Planning 
+Target
+Optimization
+Control
+Trajectory
+Dynamic
+Torque
+Target Dataset
+Objective Function 
+Virtual Model
+Fig. 1.
+The schematic depicts motion generation: biologically, the cerebral
+cortex produces desired trajectories, while the cerebellum optimizes motor
+commands via an internal dynamics model and relays them to muscles via
+the spinal cord; for the exoskeleton, the optimization objective is built from
+reference trajectories and its dynamics model, and then assistance torque is
+tuned by the objective and virtual environment feedback.
+.
+[3] establish different mathematical models between EMG
+and torque to estimate torque. However, these methods are
+highly susceptible to inter-subject variability and external
+disturbances [4], [21], which severely limit their applicability
+for torque estimation in highly dynamic scenarios [5].
+To address the limitations of existing torque estimation
+methods for exoskeleton assistance, this paper adopts a novel
+optimization-based perspective on torque estimation. This
+research perspective draws inspiration from the physiological
+process of human motion generation [12], [13]: 1) The cere-
+bral cortex generates motor intentions, high-level locomotor
+plans, gait targets, and motor trajectories in a top-down con-
+trol hierarchy [14]; 2) The cerebellum receives descending
+cortical motor commands. It uses stored internal dynamic
+models to compare desired motion with real-time sensory
+feedback and fine-tune the timing and magnitude of muscle
+activation [13]. The detailed workflow is illustrated in Fig.
+1. Essentially, the cerebral cortex conducts high-level motor
+planning, while the cerebellum generates control commands
+via internal dynamic models and modulates muscle activation
+to execute planned motor tasks. The underlying principle of
+the aforementioned motor control process bears conceptual
+consistency with that of model predictive control [15].
+The exoskeleton system is inherently a human–robot cou-
+pled system. Although the dynamic models of the human
+lower limb and the hip exoskeleton share a consistent for-
+mulation and are coupled via the interaction torque, their
+dynamic parameters differ [16], [11], and precise alignment
+between the exoskeleton joints and the human joints during
+motion remains difficult to achieve [17], [22]. Consequently,
+arXiv:2609.15352v1  [cs.RO]  14 Sep 2026
+
+
+===== PAGE 2 =====
+Assistance Torque Estimation
+Online Torque Prediction
+Offline Dataset Construction
+Prediction Model Training
+𝒟= 𝐎, 𝐚
+𝐚
+Torque
+𝐘
+Trajectory
+Optimization
+𝐪, 𝐪̇
+Motor
+IMU
+𝐚
+Truth
+𝐎
+Observation
+𝒢(𝐎)
+TCN Model
+𝐚ො
+Predicted
+Sensing
+Control
+Label
+Trajectory
+Deployment
+Update
+Error
+Dataset
+Feature
+Angle
+Velocity
+STM32
+Jeston I/O
+Read Sensors 
+Send Cmd.
+Read Data
+Send Data
+Inference
+Torq. Queue
+Dynamic
+Model
+Jeston Infer.
+Joint 
+Feature
+Motion 
+Information
+Collection
+Fig. 2.
+Overall framework of the proposed torque prediction system. Motor trajectories Y are collected, and corresponding torques a estimated via
+dynamics optimization are set as dataset labels. Acquired motor and IMU measurements are taken as input features O to build an offline dataset D. A
+torque prediction model G is trained on the dataset and deployed on hardware, where the microcontroller performs real-time sensor reading and transmits
+torque values inferred by the Jetson Orin NX edge computing unit.
+.
+under the condition that the exoskeleton conforms to human
+motion, the motor output torque and the human joint torque
+do not exhibit a simple linear relationship [9]. Since the
+collected joint data correspond to the exoskeleton motor side,
+this paper performs direct optimization of the motor assis-
+tance torque using the exoskeleton dynamics model based
+on the process of human motion generation. Specifically,
+motor angles and angular velocities measured during human
+walking with the exoskeleton are designated as desired
+trajectories, while kinematic states iteratively computed via
+the dynamic model serve as actual trajectories, which are
+generated by the virtual model. The motor assistance torques
+are then optimized to minimize the tracking error between
+the actual and desired trajectories.
+To achieve adaptive exoskeleton assistance in outdoor
+complex environments, this paper synchronously acquires
+multi-modal sensory data, including motion states measured
+by IMUs, motor angles, and angular velocities, from human
+subjects walking with the exoskeleton in complex unstruc-
+tured scenarios. Then, leveraging the aforementioned torque
+optimization method, this paper derives an optimized motor-
+assistance torque, which is subsequently used as ground-truth
+labels for training the torque prediction model. In the of-
+fline phase, the proposed assistance torque prediction model
+adopts a temporal convolutional network (TCN) backbone. It
+is trained by iteratively updating the parameters to minimize
+the prediction error against ground-truth labels, generating
+the final prediction model. Fig. 2 presents a schematic
+illustration of the overall framework of the proposed method.
+The efficacy of the proposed method is validated in
+unstructured outdoor environments. Experimental results
+demonstrate that the optimized motor assistance torque main-
+tains better gait phase consistency with gait trajectories
+and can adapt to different task characteristics. The torque
+prediction model yields a coefficient of determination (R2)
+of 0.84. Relative to the zero torque baseline condition, the
+peak of muscle activation, metabolic rate, and heart rate
+are reduced by 28.2% ∼54.0%, 11.8% ∼17.7%, and
+8.9% ∼14.3%, respectively. These findings corroborate that
+the proposed torque estimation approach effectively reduces
+human metabolic energy expenditure and enhances assistance
+performance in dynamic outdoor scenarios, without incurring
+prohibitive data acquisition overhead. The key contributions
+of this work are outlined below:
+• A
+novel
+exoskeleton
+assistance
+torque
+estimation
+method is proposed, which is based on dynamic model
+optimization and requires no costly data acquisition.
+• The proposed prediction model built upon the estimated
+torque can adapt to dynamic environments and effec-
+tively reduce human energy expenditure.
+This work opens up a new perspective for exoskeleton
+assistance in complex environments, which can significantly
+reduce the reliance on expensive hardware platforms.
+II. RELATED WORKS
+This section presents methodologies for exoskeleton
+torque estimation and strategies for exoskeleton assistance
+in complex dynamic environments.
+A. Torque Estimation
+In human–robot interaction, existing torque estimation
+methods fall into two main categories: inverse dynamics-
+based [20], [2], [6], [7] and EMG-based [4], [3], [5] ap-
+proaches. The first category of methods estimates joint
+torques from limb kinematic data and plantar pressure
+measurements using musculoskeletal models [20], [2] or
+mathematical models [6], [7]. However, this category of
+methods requires motion capture systems or IMUs, as well
+as costly plantar pressure plates, for data acquisition, in-
+curring prohibitive instrumentation costs and constraining
+viable data collection scenarios. The second category of
+methods estimates joint torques from measured EMG signals
+via Hill-type models [3], nonlinear parametric regression
+models [4], or neural network models [5]. However, this
+category of methods is hampered by inter-individual variabil-
+ity (necessitating subject-specific parameter calibration) and
+limited EMG signal fidelity, resulting in torque estimation
+accuracy that remains inadequate for real-world exoskeleton
+assistance applications. This paper proposes an optimization-
+driven exoskeleton assistance torque estimation approach that
+
+
+===== PAGE 3 =====
+TABLE I
+COMPARISON RESULTS OF STATE-OF-THE-ART METHODS FOR
+EXOSKELETON ASSISTANCE IN HIGH-DYNAMIC SCENARIOS.
+Related Works
+MoCaps
+MSK
+Data Cost
+Adaptive
+Molinaro et al. (2024) [20]
+!
+%
+High
+Low
+Molinaro et al. (2024) [2]
+!
+%
+High
+High
+Luo et al. (2024) [19]
+%
+!
+Low
+Low
+Ours
+%
+%
+Low
+High
+requires no costly data acquisition instruments and features
+strong robustness to ambient noise, rendering it well-suited
+for adaptive assistance in complex outdoor environments.
+B. Assistance in High-Dynamic Environment
+To date, two primary methodological frameworks have
+been established for exoskeleton assistance in highly dy-
+namic environments: torque estimation-based approaches
+[20], [2] and methods grounded in integrated musculoskele-
+tal–exoskeleton models [19]. Methods in the first category
+primarily estimate joint torques via motion capture systems
+(MoCaps), and they inherit the aforementioned limitations:
+prohibitive data acquisition costs and restricted applicability
+in complex outdoor settings. The second category trains
+reinforcement learning control policies within simulation
+environments, eliminating the need for experimental data
+collection. However, due to the high dimensionality of mus-
+culoskeletal (MSK) systems, developing a control policy
+adaptable to diverse complex terrains remains challenging,
+which in turn limits the generalizability across unstructured
+terrain scenarios. The method proposed in this work falls
+into the torque estimation paradigm (estimating assistance
+torque instead of joint torque) and enables efficient exoskele-
+ton assistance in complex terrains while satisfying low-cost
+deployment constraints.
+III. TORQUE ESTIMATION VIA DYNAMIC-AWARE
+OPTIMIZATION
+This
+section
+delineates
+the
+methodological
+pipeline
+of dynamics-model-based torque optimization (estimation)
+without expensive data collection costs for complex envi-
+ronments.
+A. Dynamic Model
+Assuming the human lower limb is modeled as a rigid-
+body system, the lower limb and exoskeleton subsystems
+are coupled through mechanical interactions at the wearable
+attachment interfaces. The resulting human-exoskeleton cou-
+pled dynamic model can be formulated as follows [16]:
+Me¨qe + Ce(qe, ˙qe) ˙qe + Ge(qe) = Te −Tint,
+Mh¨qh + Ch(qh, ˙qh) ˙qh + Gh(qh) = Th + Tint,
+(1)
+where subscripts e and h denote the exoskeleton and the
+human body, respectively. M, C, and G represent the
+mass matrix, Coriolis-centrifugal terms, and gravity term,
+respectively. qe and qh are the angles of the motor and
+human hip joint, and Te and Th denote the motor output
+torque and the human hip joint torque, respectively. Tint
+denotes the torque of human-robot interaction, which can be
+estimated via the impedance model:
+Tint = Kp(qh −qe) + Kd( ˙qh −˙qe),
+(2)
+where Kp and Kd denote the stiffness matrix and damping
+matrix, respectively. However, in complex unstructured loco-
+motion scenarios, human joint angles are not directly mea-
+surable, and accurate estimation of human-robot interaction
+torques remains a key challenge. When predicted trajectories
+are used as surrogates for human joint trajectories, the
+inherent perception-control coupling tends to degrade the
+stability of exoskeleton assistance.
+When exoskeleton assistance is compliant with human
+joint torques, human-robot interaction torques act in the
+opposite direction to human joint torques, and the absolute
+magnitude of the interaction torques increases with joint
+angular velocity. Accordingly, the human-robot interaction
+torques estimated from joint angular velocities can be for-
+mulated as follows:
+Tint = K1 ˙qe + T0,
+(3)
+where K1 and T0 are coefficients. Accordingly, with the
+prescribed reference trajectories (qd
+e, ˙qd
+e) as inputs, the op-
+timal motor assistance torque Te can be derived via the
+optimization formulation established in Eqs. (1) and (3). In
+particular, dynamic parameter mismatches between human
+lower limbs and the exoskeleton preclude a trivial linear
+mapping between motor assistance and human joint torques.
+Furthermore, in this work, the motor assistance torque op-
+timization procedure is simplified by exclusively accounting
+for the dynamic model of the exoskeleton.
+B. Torque Optimization based on Dynamic Model
+For notational simplicity, the left subscript e denoting
+exoskeleton dynamic model parameters is omitted through-
+out the subsequent derivations. Define the state vector as
+y = [q; ˙q] ∈R4 and the control input torque as T ∈R2.
+Based on Eqs. (1) and (3), the governing dynamic relation
+linking the state time derivative ˙y to the control torque T is
+expressed as
+˙y =
+
+y1
+M−1 T −Cy1 + G(y0) −Tint(y1)
+
+
+,
+(4)
+where y0 = q and y1 = ˙q. In the discrete-time system,
+the next state can be denoted as yt+1 = yt + ˙yt∆t. Then,
+the state yt and control torque Tt satisfy a deterministic
+transition function f mapping the current state-action pair to
+the next state:
+yt+1 = f(yt, Tt).
+(5)
+During natural human locomotion, gait trajectories are ini-
+tially planned by the cerebral cortex [15]. In this work, motor
+angles q and angular velocities ˙q measured from human
+subjects during natural walking with the exoskeleton are
+designated as the desired trajectories. Subsequently, based
+on the planned trajectories, the cerebellum computes motor
+commands via its internal dynamic models [14]. Essentially,
+
+
+===== PAGE 4 =====
+this control logic can be formulated as an optimization
+problem. In this work, our method is built upon the exoskele-
+ton dynamic model and aims to optimize motor assistance
+torques. Given the desired trajectory Yd = [y1; ...; yL] ∈
+R4L and the optimized assistance torque A = [T1; ...; TL] ∈
+R2L, where L denotes the length of the trajectory, the
+optimization objective function can be expressed as follows:
+(
+arg min
+A
+ Yd −Y
+T Q
+ Yd −Y
+
++ ATPA,
+s.t.
+yt+1 = f(yt, Tt),
+(6)
+where Q ∈R4L×4L = diag{Q1, ..., QL} is the error
+weight matrix and P ∈R2L×2L = diag{P1, ..., PL} is
+the torque constrain weight matrix. Q1:L−1 ∈R4×4 =
+diag{CqI2, CvI2}, QL = CpI4 and P1:L = CaI4. Cq, Cv,
+Cp, and Ca denote the weighting coefficients for angular er-
+ror, angular velocity error, terminal error, and torque penalty
+term, respectively. Term ATPA serves as a regularization
+term in the objective function, preventing the torque from
+becoming excessively large. Using the collected continuous
+trajectory data, the optimization is performed via a sliding-
+window scheme with window length L and sliding step size
+1. The first torque value of A solved from each window-wise
+optimization is regarded as the estimated assistance torque
+corresponding to the current motion state.
+IV. ADAPTIVE ASSISTANCE VIA TORQUE PREDICTION
+The estimation method for the motor assistance torque
+has been presented above. To achieve adaptive exoskeleton
+assistance, a torque prediction model should be trained, that
+is, a model that predicts the future torque a from past
+observations O.
+A. Offline Dataset Construction
+This paper collects human motion data in complex en-
+vironments using only 18-dimensional IMU measurements
+(from three IMUs) and 4-dimensional motor measurements
+(from two motors). This sensor configuration obviates the
+need for expensive motion capture systems, thereby substan-
+tially reducing the cost of data acquisition. Subsequently,
+based on the assistance torque estimation method presented
+above, the torque values are calculated from the acquired 4-
+dimensional motor data, i.e., the angles and angular velocities
+of the left and right motors, and are then used as the ground-
+truth labels for the torque prediction network.
+Subsequently, the offline training dataset can be con-
+structed for the assistance torque prediction model. The input
+features consist of the 18-dimensional IMU measurements
+and the angular positions of the left and right motors, while
+the corresponding 2-dimensional torque values serve as the
+ground-truth labels. Specifically, at each time instant t, the
+observation Ot = [ot−To−1, ..., ot] ∈R20×To is defined as
+the sequence of input features spanning the past To time
+steps, and the target at = Tt+Tp ∈R2 is the torque at Tp
+time steps into the future. From this formulation, the offline
+dataset D = {Ot, at}N
+i=1 can be constructed, where N is the
+number of sample.
+Fig. 3.
+Schematic of outdoor assistance locomotion terrain over rocky,
+sloped, and grassy terrains.
+.
+B. Torque Prediction Model Training
+Based on the offline dataset D, this section focuses on
+learning a mapping function G from observations Ot to
+torques at, that is,
+at = G(Ot).
+(7)
+Due to the complexity of the observations, a neural network
+parametrized with ω is employed to approximate the map-
+ping G. Accordingly, the optimization objective for updating
+the network parameters can be formulated as
+arg min
+ω
+L = EO,a∼D
+
+∥Gω(O) −a∥2
+
+.
+(8)
+To capture the temporal dependencies and inter-feature cor-
+relations inherent in the observations O, a temporal con-
+volutional network (TCN) is adopted to parameterize the
+mapping function G(·), with the network weights collectively
+denoted by ω. Once trained, the torque prediction model G is
+converted to the TensorRT format and deployed on an edge
+computing device, thus enabling real-time inference and real-
+time torque assistance for the exoskeleton.
+V. EXPERIMENTS
+A. Experimental setup
+The experiments are divided into an offline phase and
+an online phase. In the offline phase, the assistance torque
+is derived from the collected motor angles and angular
+velocities, and the TCN model is trained to predict the
+future motor torque output. In the online phase, the assistance
+torque is predicted in real time. The user’s muscle activation
+level, metabolic cost, and heart rate are then compared
+across three conditions: Zero torque (wearing the exoskeleton
+without assistance), Assist on (wearing the exoskeleton with
+assistance), and No exo (not wearing the exoskeleton).
+Before the experiment, all participants were fully informed
+of the experimental procedures. They were then instructed
+to walk on a treadmill, on stairs, and over complex outdoor
+terrain under the three conditions. Fig. 3 presents a schematic
+diagram of the complex outdoor scenario, which comprises
+various outdoor terrains including lawns, steep slopes, and
+rocky formations. The experimental section of this work is
+designed to address two fundamental questions:
+• Q1
+: Does the assistance torque estimated from the
+dynamics model conform to the human motion intention?
+• Q2 : What are the torque prediction performance and
+assistance effectiveness in complex environments?
+
+
+===== PAGE 5 =====
+  
+ 
+
+
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 	
+  
+ 	      
+     	     
+  
+     
+     	         
+ 	  
+         
+    	           
+         
+           
+
+         
+
+         
+
+         
+  
+ 
+
+
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 	
+  
+ 	      
+     	     
+  
+         
+           
+  
+ 
+
+
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 	
+  
+  
+ 	      
+     	     
+         
+           
+Fig. 4.
+The relationship results between the estimated torque and joint trajectories, as well as their correspondence with measurements from the motion
+capture system. Panels (a), (b), and (c) present the experimental results at walking speeds of 0.6, 1.0, and 1.4 m/s, respectively.
+ 
+ 
+ 
+ 
+  
+ 	       
+
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+               
+     	      
+        	  
+  
+    
+ 	 
+      
+Fig. 5.
+The results of the real-time torque prediction of the proposed method and related trajectory under the outdoor complex task conditions.
+B. Assistance Torque Estimation Results (Q1)
+1) Torque Estimation Results: The quality of the esti-
+mated torque is assessed through two complementary dimen-
+sions: 1) kinematic consistency with the gait trajectory; 2)
+compatibility with task characteristics. The first dimension
+evaluates the temporal coherence between the estimated
+torque profile and gait kinematics. Specifically, it verifies
+whether the estimated torque converges to zero as the gait
+trajectory approaches its peak values during the stance and
+swing phases. The second dimension validates the alignment
+between the estimated torque and inherent task properties.
+It primarily examines whether peak torque values change
+in response to dynamic task scenarios, such as changes in
+locomotion speed.
+Fig. 4 presents the collected motor trajectories and cor-
+responding estimated torque under three representative lo-
+comotion conditions, namely level walking at speeds of 0.6
+m/s, 1.0 m/s, and 1.4 m/s. Across all three locomotion tasks,
+the estimated torque consistently converges to near-zero
+magnitudes at the phase transition points between stance and
+swing. This observation validates the kinematic consistency
+between the estimated torque profiles and the correspond-
+ing gait trajectories. Furthermore, the peak magnitude of
+the estimated torque increases correspondingly with rising
+locomotion speed. These results collectively confirm that the
+estimated torque aligns well with the inherent characteristics
+of different locomotion tasks.
+2) Analysis of Assistance Torque: This part presents a
+comparative analysis between the estimated hip joint torques
+and the reference hip joint torques computed via OpenSim
+using measurements from a motion capture system. Fig. 4
+presents the comparison between the torque estimated by
+the proposed method and the reference hip joint torque
+computed from a motion capture system, under level walking
+conditions at speeds of 0.6 m/s, 1.0 m/s, and 1.4 m/s. The
+reference torque data are sourced from a public dataset [18].
+Specifically, we select data from subjects with body height
+and mass comparable to those of the test participant in this
+work, and scale the reference torque values by a factor of
+0.15. This scaling is justified by the approximate proportional
+relationship of 0.15 between the assistive torque and the total
+torque of the hip joint [2].
+Experimental results reveal similar overall trends but sig-
+nificant amplitude differences between the scaled human
+joint torque and the optimized assistance torque. Human joint
+torque exhibits a pronounced stance-phase peak due to body-
+weight support, whereas the thigh-mounted exoskeleton can-
+not directly provide postural or weight-bearing assistance,
+making such high torque unnecessary. These findings indi-
+cate that proportional scaling of human joint torque is not
+an optimal strategy for generating assistance torque. Instead,
+the relationship between human joint torque and optimal
+assistance torque is nonlinear, and its underlying coupling
+mechanism deserves further investigation.
+C. Assistance Performance Results (Q2)
+1) Torque Prediction Results: All experiments presented
+below adopt a cross-subject evaluation protocol, where the
+feature data of test subjects remain completely unseen by the
+network throughout the entire training phase. Fig. 5 shows
+the predicted torque results and corresponding trajectories for
+the subject performing a range of locomotion tasks: walking,
+sit-to-stand, variable-speed running, and rock climbing. It
+shows that, under the complex terrain conditions, the pre-
+dicted torque agrees well with the gait trajectories: torque
+zero-crossings correspond to stance-swing phase transitions,
+
+
+===== PAGE 6 =====
+
+ 
+ 
+ 
+	 
+  
+
+ 
+ 
+ 
+	 
+  
+         
+              
+ 
+       
+      	 
+          
+  
+   
+
+ 
+ 
+ 
+	 
+  
+
+ 
+ 
+ 
+	 
+  
+      
+           
+ 
+       
+      	 
+          
+  
+
+ 	  
+
+ 
+ 
+ 
+	 
+  
+
+	 
+  
+  
+  
+  
+      
+           
+ 
+       
+      	 
+          
+  
+   
+Fig. 6.
+Comparison of muscle activation curves within one gait cycle across three assistance conditions for level-ground, ramp, and stair walking tasks.
+ 
+ 
+ 
+ 
+      
+    	    
+      
+    
+
+
+
+
+
+  
+Fig. 7.
+Comparison of online torque prediction errors and inference times
+across different network models.
+.
+and torque magnitude rises with increasing speed, consistent
+with the physical properties of locomotion tasks.
+Fig. 7 summarizes the online prediction accuracy (the
+squared R (R2)) and online inference latency (ms) of differ-
+ent models. The online torque label is calculated by Eq. (6)
+based on collected angle and angle velocity. The experimen-
+tal results indicate that TCN attains the best performance.
+Therefore, TCN is adopted in this work for online torque pre-
+diction. LSTM exhibits the poorest prediction performance,
+as its inference latency on edge devices (about 8 ms) fails to
+meet the 5 ms real-time constraint, and it incurs substantial
+prediction errors. TCN and Transformer achieve only mod-
+erate accuracy, limited by the cross-subject generalization
+requirement and a sensor feature distribution shift: the offline
+dataset is collected under no-load motor conditions, whereas
+loaded motor operation during real-time assistance alters
+the feature statistics. However, TCN maintains an overall
+consistent prediction trend, with deviations only at peaks and
+troughs, which still satisfies the requirements for exoskeleton
+assistance.
+2) Muscle Activation Results: Given that EMG signals
+are highly sensitive to locomotion patterns, muscle activation
+was measured under three distinct assistance conditions
+across three locomotor tasks: level treadmill walking at 1.0
+m/s, 5° inclined treadmill walking at 1.0 m/s, and stair climb-
+ing, to characterize the modulation of muscular activation
+induced by different assistance strategies. Fig. 6 illustrates
+the muscle activation over a single gait cycle for each of the
+three tasks under all three assistance conditions, i.e., Assist
+on, Zero torque, and No exo. These results demonstrate that
+1) Compare to Zero torque condition, assistance torque cuts
+           
+  
+  
+  
+ 	 
+  
+      
+           
+        
+   	 
+         
+ 
+  
+  
+  
+ 
+  
+             
+ 
+ 
+ 
+ 
+ 
+    
+Fig. 8.
+Comparison of metabolic cost, heart rate, and muscle activation
+across three assistance conditions on outdoor complex terrain.
+peak muscle activation by 28.2%, 54.0%, and 32.6% under
+the three terrain conditions; 2) Against the No exo condi-
+tion, the peak muscle activation is reduced −7.0%, 39.8%,
+and 16.1% for the three respective terrains; 3) Relative to
+the Zero torque condition, integrated muscle activation is
+reduced by 30.2%, 41.0%, and 37.6% for the three terrains in
+sequence. The results show that the estimated torque from the
+optimization-based approach can effectively reduce muscle
+activation.
+3) Metabolic and Heart Rate Results: The experiments
+presented in this section are conducted under two distinct
+scenarios. The first is a complex, dynamic unstructured out-
+door scenario, covering diverse locomotion tasks including
+rock scrambling, running, and walking on uneven grassy
+terrain. The entire outdoor test course spans approximately
+1 km and takes roughly 8 minutes to traverse. The second
+is a well-controlled structured scenario comprising three
+canonical locomotion tasks: level walking, inclined walking,
+and stair climbing. Fig. 8 presents a quantitative comparison
+of metabolic cost, heart rate, and average muscle activation
+under the three assistance conditions in the unstructured
+outdoor scenario. The results show that, compared with the
+No exo condition, the predicted torque reduces metabolic
+cost, heart rate, and average muscle activation by 11.7%,
+8.2%, and 15.6%, respectively. And, compared with the Zero
+torque condition, the three metrics are reduced by 14.3%,
+13.6%, and 21.6%, respectively.
+Fig. 9 presents a quantitative comparison of metabolic cost
+and heart rate under all three assistance conditions across
+the three structured locomotion tasks. The results indicate
+that, relative to the Zero torque condition, metabolic cost
+
+
+===== PAGE 7 =====
+
+     
+   
+   
+
+
+ 
+  
+      
+	     
+ 	       
+      
+           
+   
+ 
+  
+   
+ 	       
+      
+           
+
+     
+   
+   
+ 
+  
+  
+  
+         
+ 
+ 	 
+   
+   
+Fig. 9.
+The comparison results of metabolic cost (a) and heart rate (b) under three assistance conditions during ground, ramp, and stair walking tasks.
+decreases by 12.7%, 17.7%, and 11.8% across the three
+tasks, with corresponding heart rate reductions of 8.9%,
+14.3%, and 11.7%, respectively. Compared with the No
+exo baseline, metabolic cost decreases by 2.5%, 9.5%, and
+6.5% across the task set, with corresponding heart rate
+reductions of 9.8%, 6.5%, and 7.3%, respectively. Collec-
+tively, experimental results show that the estimated torque
+effectively reduces users’ energy expenditure across a range
+of locomotion tasks.
+VI. CONCLUSION
+This paper proposes a novel optimization-based method to
+estimate exoskeleton assistance torque, effectively reducing
+data acquisition costs. This estimation method optimizes the
+torque by incorporating the exoskeleton dynamics model.
+Based on the estimated torque, an assistive torque prediction
+model is trained to achieve real-time assistance in complex
+environments. Compared with the Zero torque condition,
+the predicted assistance torque reduces metabolic rate by
+11.8% ∼17.7%, heart rate by 8.9% ∼14.3%, and peak
+muscle activation by 28.2% ∼54.0%. This work provides
+new insights into adaptive exoskeleton assistance. However,
+because locomotion varies across individuals, the estimated
+torque cannot be fully adapted to different users. Future work
+should therefore explore personalized methods for estimating
+assistance torque.
+ACKNOWLEDGMENT
+This work is funded by the National Natural Science
+Foundation of China (Grant 62622321, Grant 62473365,
+Grant U22A2056, and Grant 62373013) and the Beijing
+Natural Science Foundation (Grant L232021 and L242101).
+REFERENCES
+[1] P. Slade, M. J. Kochenderfer, S. L. Delp, and S. H. Collins, “Personal-
+izing exoskeleton assistance while walking in the real world,” Nature,
+vol. 610, no. 7931, pp. 277–282, 2022.
+[2] D. D. Molinaro, K. L. Scherpereel, E. B. Schonhaut, G. Evangelopou-
+los, M. K. Shepherd, and A. J. Young, “Task-agnostic exoskeleton
+control via biological joint moment estimation,” Nature, vol. 635, no.
+8038, pp. 337–344, 2024.
+[3] K. Gui, H. Liu, and D. Zhang, “A practical and adaptive method
+to achieve emg-based torque estimation for a robotic exoskeleton,”
+IEEE/ASME Transactions on Mechatronics, vol. 24, no. 2, pp. 483–
+494, 2019.
+[4] L. Quesada, D. Verdel, O. Bruneau, B. Berret, M.-A. Amorim, and
+N. Vignais, “Emg-to-torque models for exoskeleton assistance: a
+framework for the evaluation of in situ calibration,” The International
+Journal of Robotics Research, p. 02783649251414884, 2026.
+[5] C. Caulcrick, W. Huo, W. Hoult, and R. Vaidyanathan, “Human joint
+torque modelling with mmg and emg during lower limb human-
+exoskeleton interaction,” IEEE Robotics and Automation Letters,
+vol. 6, no. 4, pp. 7185–7192, 2021.
+[6] H. Dinovitzer, M. Shushtari, and A. Arami, “Accurate real-time joint
+torque estimation for dynamic prediction of human locomotion,” IEEE
+Transactions on Biomedical Engineering, vol. 70, no. 8, pp. 2289–
+2297, 2023.
+[7] D. D. Molinaro, I. Kang, J. Camargo, M. C. Gombolay, and A. J.
+Young, “Subject-independent, biological hip moment estimation dur-
+ing multimodal overground ambulation using deep learning,” IEEE
+Transactions on Medical Robotics and Bionics, vol. 4, no. 1, pp. 219–
+229, 2022.
+[8] M. M. Diraneyya, J. Ryu, E. Abdel-Rahman, and C. T. Haas, “Inertial
+motion capture-based whole-body inverse dynamics,” Sensors, vol. 21,
+no. 21, p. 7353, 2021.
+[9] X.-Y. Liu, G. Li, L. Sun, X. Liang, and Z.-G. Hou, “Exotraj: A general
+lower-limb exoskeleton assistance policy for complex environments,”
+arXiv preprint arXiv:2606.16876, 2026.
+[10] X.-Y. Liu, G. Li, X.-H. Zhou, X. Liang, and Z.-G. Hou, “A weight-
+aware-based multisource unsupervised domain adaptation method for
+human motion intention recognition,” IEEE Transactions on Cyber-
+netics, vol. 55, no. 7, pp. 3131–3143, 2025.
+[11] X.-Y. Liu, G. Li, W. Wang, and Z.-G. Hou, “Personalized lower-limb
+exoskeleton assistance via preference-based bayesian optimization,”
+arXiv preprint arXiv:2608.09015, 2026.
+[12] S. Grillner, “The motor infrastructure: from ion channels to neuronal
+networks,” Nature Reviews Neuroscience, vol. 4, no. 7, pp. 573–586,
+2003.
+[13] R. C. Miall, D. J. Weir, D. M. Wolpert, and J. Stein, “Is the cerebellum
+a smith predictor?” Journal of Motor Behavior, vol. 25, no. 3, pp.
+203–216, 1993.
+[14] S. H. Scott, “Optimal feedback control and the neural basis of
+volitional motor control,” Nature Reviews Neuroscience, vol. 5, no. 7,
+pp. 532–545, 2004.
+[15] D. M. Wolpert and Z. Ghahramani, “Computational principles of
+movement neuroscience,” Nature Neuroscience, vol. 3, no. 11, pp.
+1212–1217, 2000.
+[16] Y. Yan, Z. Chen, C. Huang, L. Chen, and Q. Guo, “Human-exoskeleton
+coupling dynamics in the swing of lower limb,” Applied Mathematical
+Modelling, vol. 104, pp. 439–454, 2022.
+[17] L. Chen, D. Zhou, and Y. Leng, “A systematic review on rigid
+exoskeleton robot design for wearing comfort: Joint self-alignment,
+attachment interface, and structure customization,” IEEE Transactions
+on Neural Systems and Rehabilitation Engineering, vol. 32, pp. 3815–
+3827, 2024.
+[18] J. Camargo, A. Ramanathan, W. Flanagan, and A. Young, “A compre-
+hensive, open-source dataset of lower limb biomechanics in multiple
+conditions of stairs, ramps, and level-ground ambulation and transi-
+tions,” Journal of Biomechanics, vol. 119, p. 110320, 2021.
+[19] S. Luo, M. Jiang, S. Zhang, J. Zhu, S. Yu, I. Dominguez Silva,
+T. Wang, E. Rouse, B. Zhou, H. Yuk et al., “Experiment-free ex-
+oskeleton assistance via learning in simulation,” Nature, vol. 630, no.
+8016, pp. 353–359, 2024.
+[20] D. D. Molinaro, I. Kang, and A. J. Young, “Estimating human joint
+moments unifies exoskeleton control, reducing user effort,” Science
+Robotics, vol. 9, no. 88, p. eadi8852, 2024.
+[21] C. S. Bird, A. P. Bo, W. Lu, and T. J. Dick, “Ultra-wideband radar to
+measure in vivo muscle forces,” Science Robotics, vol. 11, no. 116, p.
+eaed5865, 2026.
+[22] G. Li, L. Cheng, Z. Gao, X. Xia, and J. Jiang, “Development of
+an untethered adaptive thumb exoskeleton for delicate rehabilitation
+assistance,” IEEE Transactions on Robotics, vol. 38, no. 6, pp. 3514–
+3529, 2022.
+
+
+===== PAGE 8 =====
+APPENDIX
+A. System Description
+Fig. 10 shows the exoskeleton structure, hardware, and
+sensor communication architecture. As shown in Fig. 10
+(a), the hip exoskeleton weighs 6.8 kg and comprises a
+waist harness, adjustable elastic belts, thigh support frames,
+a controller housing, and hip joint actuation modules, with
+customized orthoses securing it firmly to the user’s pelvis and
+thighs. A quasi-direct-drive actuator (AK80-9, T-Motor) pro-
+vides torque assistance. Three IMUs (MPU9250) mounted
+on the bilateral thighs and lower torso capture locomotion
+kinematics. The NVIDIA Jetson Orin NX performs real-
+time neural-network torque inference, while the STM32F429
+handles sensor sampling and motor drive control. Fig. 10
+(b) shows the communication architecture: TCP between
+the Jetson Orin NX and STM32, CAN for STM32–motor
+communication, and SPI for IMU data acquisition.
+B. Parameters Configuration
+This part presents detailed parameter settings for both the
+torque estimation model and the torque prediction network.
+For torque estimation based on the dynamic model, parame-
+ters of the dynamic model, M, C, G, error weight matrix Q,
+and torque weight matrix P should be calibrated according
+to the specific exoskeleton prototype and control targets.
+The full configuration details are summarized in Table II.
+For the torque prediction model, the network is based on
+the TCN model. The input observation O has dimensions
+[250, 20] (To = 250), and the output torque a is a [1, 2] vector
+(Tp = 1). For training settings, the network is trained for 100
+epochs with a batch size of 512 and an initial learning rate
+TABLE II
+PARAMETERS CONFIGURATION OF TORQUE ESTIMATION AND
+PREDICTION MODEL.
+Torque Estimation
+Prediction Model
+Parameter
+Value
+Parameter
+Value
+Inertial mat. M
+0.0156I
+Obs. horizon To
+250
+Velocity mat. C
+0
+Future step Tp
+1
+Gravity mat. G
+0.879 sin(y)
+Batch size
+512
+Coefficient K1
+3I
+Learning rate
+10−4
+Error mat. Q
+diag{10, 0.1}I
+Training epoch
+100
+Torque mat. P
+0.5I
+Optimizer
+Adam
+of 1 × 10−4. The entire network comprises approximately
+1.5 million parameters.
+C. Other Experimental Results
+Fig. 11 illustrates the torque profiles generated by the pro-
+posed method during exoskeleton assistance under different
+treadmill speed conditions. As walking speed increases, the
+torque profiles exhibit progressively higher peak magnitudes
+and higher frequencies, indicating that the assistance is
+scaled according to gait cadence and intensity. Moreover, the
+system demonstrates rapid adaptability to velocity variations:
+when the user comes to a complete stop, the assistance torque
+decays to zero almost immediately with negligible latency,
+thereby avoiding unnecessary resistance or discomfort. These
+results confirm that the proposed method can effectively
+adapt to dynamically changing tasks involving rapid velocity
+variations, which is essential for practical exoskeleton appli-
+cations in real-world locomotion.
+Controller Housing
+（a）
+Thigh Orthotic
+Actuator
+Waist Orthotic
+High-level
+Mid-level
+Low-level
+Human-Exo.
+IMU
+Orin NX
+STM32F429
+AK80-9
+SPI
+CAN
+TCP
+MPU9250
+Assist
+(b)
+IMU
+Fig. 10.
+(a) shows the schematic diagram of a lower-limb exoskeleton robot, and (b) gives the communication modes among various hardware devices.
+.
+ 
+ 
+ 
+  
+ 	       
+
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+   
+     	      
+      
+    	     
+    	     
+Fig. 11.
+The results of the real-time torque prediction of the proposed method and related trajectory under rapid speed variations on the treadmill.

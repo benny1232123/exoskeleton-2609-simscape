@@ -1,0 +1,3 @@
+msPerFrame=154.7 nFrames=64 sign=+1 resid=6.368e-10
+mp4=C:\Users\29408\Desktop\外骨骼\matlab2609\out_simscape\exo_real_drop.mp4
+poses=C:\Users\29408\Desktop\外骨骼\matlab2609\out_simscape\exo_real_drop_poses.png

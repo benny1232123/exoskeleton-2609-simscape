@@ -1,0 +1,51 @@
+===== build_harness_exo2dof.m =====
+  1| function info = build_harness_exo2dof()
+  2| %BUILD_HARNESS_EXO2DOF  Add torque actuation + state logging to the imported
+  3| %                       Simscape Multibody plant and save a simulation harness.
+  4| %
+  5| %   Creates matlab2609/simscape/sm_exo2dof_harness.slx from sm_exo2dof.slx:
+  6| %
+  7| %       T_L_data ─▶ [S2PS] ─▶ hip_L.t
+  8| %       T_R_data ─▶ [S2PS] ─▶ hip_R.t
+  9| %       hip_L.q ─▶ [PS2S] ─▶ qL_log   hip_L.w ─▶ [PS2S] ─▶ wL_log
+ 10| %       hip_R.q ─▶ [PS2S] ─▶ qR_log   hip_R.w ─▶ [PS2S] ─▶ wR_log
+ 11| %
+ 12| %   Gravity is forced to [0 0 -9.81] so the plant matches +exo2609 exactly.
+ 13| %   Solver: ode23t, MaxStep 1e-3, tolerances tightened (see the under-sampling
+ 14| %   note in +exo2609/discretization_info -- the damping pole M/K1 is ~5.7 ms).
+   ... total lines 217
+
+===== compare_simscape_vs_analytical.m =====
+  1| function out = compare_simscape_vs_analytical()
+  2| %COMPARE_SIMSCAPE_VS_ANALYTICAL
+  3| %   Independent cross-check of the CAD -> Simscape Multibody plant against an
+  4| %   analytical model, driven by the SAME torques from the SAME state.
+  5| %
+  6| %   Plant parameters are NOT hardcoded: they are read from
+  7| %   simscape/plant_params.csv, which _stp2plant.py derives from exo_real.urdf.
+  8| %   So this script can never drift away from the CAD.
+  9| %
+ 10| %   *** 为什么重力矩不是 -G*sin(q) ***
+ 11| %   URDF/Simscape 的关节零位 = CAD 建模时的位姿，不是「腿自然下垂」。
+ 12| %   记 a = 关节轴单位向量（世界系），c = 质心相对关节原点的偏移（世界系），
+ 13| %   r3 = 世界 z 单位向量。绕轴转 q 后质心高度的**完整**仿射展开为
+ 14| %       z_com(q) = C0 + W cos q + V sin q
+   ... total lines 209
+
+===== validate_energy.m =====
+  1| function out = validate_energy(Tend)
+  2| %VALIDATE_ENERGY  第三层验证：自由摆动的「机械能守恒」自检。
+  3| %
+  4| % 为什么需要它
+  5| % ------------
+  6| % compare_simscape_vs_analytical 是「多体模型 vs 解析模型」的**轨迹对照**，
+  7| % 它验证的是「URDF → 动力学」这一步翻译没错。但它有一个盲区：
+  8| % 两边都用了同一套从 URDF 反解出来的 M_ax / A / B，
+  9| % 所以**如果 URDF 本身错了，两边会一起错、照样通过**。
+ 10| %
+ 11| % 能量守恒是一条完全独立的证据链：**不需要任何参数对照**，
+ 12| % 只用 Simscape 自己输出的 (q, ω) 去算
+ 13| %
+ 14| %     E(t) = 1/2 * I_axis * ω²  +  U(q)
+   ... total lines 147
+

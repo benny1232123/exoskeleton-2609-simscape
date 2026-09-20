@@ -1,0 +1,320 @@
+SW_REV = 32.5.0
+nDocs = 21
+
+=== doc[0] ===
+  title = 腿部_绑缚
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_绑缚.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[1] ===
+  title = 腿部_轴盖
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_轴盖.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[2] ===
+  title = 腿部_滑块_双键
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_滑块_双键.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[3] ===
+  title = 腿部_按键_双
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_按键_双.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[4] ===
+  title = 腿部_滑轨_片形
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_滑轨_片形.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[5] ===
+  title = 腿部_腿杆_片状V5
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_腿杆_片状V5.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[6] ===
+  title = 电机_片形腿杆连接件
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\电机_片形腿杆连接件.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[7] ===
+  title = 腿部_滑轨挡片
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_滑轨挡片.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[8] ===
+  title = 腿部_螺丝_M3_4
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_螺丝_M3_4.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[9] ===
+  title = 电机_黄铜轴套8_10_18
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\电机_黄铜轴套8_10_18.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[10] ===
+  title = 电机_出轴
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\电机_出轴.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[11] ===
+  title = 电机_轴
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\电机_轴.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[12] ===
+  title = 腿部_顶丝_M4_4
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_顶丝_M4_4.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[13] ===
+  title = 腿部_埋头螺丝_M3_6
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_埋头螺丝_M3_6.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[14] ===
+  title = 腿部_埋头螺丝_M3_8
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_埋头螺丝_M3_8.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[15] ===
+  title = 腿部_法兰注塑螺母_M3_6.3_4.6_5.5
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_法兰注塑螺母_M3_6.3_4.6_5.5.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[16] ===
+  title = 腿部_平头螺丝_M3_8
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部_平头螺丝_M3_8.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[17] ===
+  title = 腿部设计_左-5
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部设计_左-5.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[18] ===
+  title = 腿部设计_左-6
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部设计_左-6.SLDPRT
+  type  = 1   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:com_error:(-2147352571, '类型不匹配。', None, 2)
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:com_error:(-2147352561, '非选择性的参数。', None, None)
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:com_error:(-2147352571, '类型不匹配。', None, 1)
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[19] ===
+  title = 腿部设计_左
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\腿部设计_左.SLDASM
+  type  = 2   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:AttributeError:<unknown>.GetMaterialPropertyName2
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:AttributeError:<unknown>.GetMaterialPropertyName2
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:AttributeError:<unknown>.GetMaterialPropertyName
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== doc[20] ===
+  title = “林-Ⅰ”髋关节外骨骼机器人开发平台V0_1_1
+  path  = C:\Users\29408\Desktop\外骨骼\装配体\“林-Ⅰ”髋关节外骨骼机器人开发平台V0_1_1.SLDASM
+  type  = 2   (1=PART 2=ASSEMBLY 3=DRAWING)
+  ext   = <class 'str'>
+  doc.GMPN2("","")           -> ERR[doc.GMPN2("","")]:AttributeError:<unknown>.GetMaterialPropertyName2
+  doc.GMPN2("默认")            -> ERR[doc.GMPN2("默认")]:AttributeError:<unknown>.GetMaterialPropertyName2
+  ext.GMPN2("","")           -> ERR[ext.GMPN2("","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  ext.GMPN2("默认","")         -> ERR[ext.GMPN2("默认","")]:AttributeError:'str' object has no attribute 'GetMaterialPropertyName2'
+  doc.MaterialIdName         -> 
+  doc.GetMaterialPropertyName -> ERR[doc.GetMaterialPropertyName]:AttributeError:<unknown>.GetMaterialPropertyName
+  ext.CreateMassProperty2()    -> <class 'str'>
+  ext.CreateMassProperty()     -> <class 'str'>
+  (no mass-property object)
+
+=== SUMMARY ===
+parts = 19

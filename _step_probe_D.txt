@@ -1,0 +1,54 @@
+========================================================================================
+腿部设计_左-5_Default_sldprt.STEP
+  parsed entities = 5430
+  --- surface types actually referenced by ADVANCED_FACE ---
+    ?                                     10
+    PLANE                                  6
+  --- B-spline curves: count=10  control-points (desc) ---
+    [58, 54, 26, 24, 18, 16, 14, 10, 8, 4]
+    total control points = 232
+  --- largest entity texts ---
+    #3257 B_SPLINE_CURVE_WITH_KNOTS        1315 chars  head:  #3257 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #1200, #4487, #1560, #3243, #2835, #4517, #736, #2884, #409
+    #4598 B_SPLINE_CURVE_WITH_KNOTS        1229 chars  head:  #4598 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #2467, #2360, #1563, #3246, #2913, #739, #5369, #4148, #321
+    #5359 B_SPLINE_CURVE_WITH_KNOTS         614 chars  head:  #5359 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #75, #3459, #2635, #922, #4315, #1745, #2215, #21, #2552, #
+    #3382 B_SPLINE_CURVE_WITH_KNOTS         583 chars  head:  #3382 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #346, #2012, #3596, #3520, #5288, #4379, #3190, #5384, #479
+    #2463 B_SPLINE_CURVE_WITH_KNOTS         473 chars  head:  #2463 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #1093, #274, #5205, #656, #2723, #3923, #3982, #1914, #3542
+    #1216 B_SPLINE_CURVE_WITH_KNOTS         430 chars  head:  #1216 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #37, #5079, #2978, #1295, #4193, #397, #2903, #5436, #2539,
+
+========================================================================================
+腿部_腿杆_片状V5_Default_sldprt.STEP
+  parsed entities = 7797
+  --- surface types actually referenced by ADVANCED_FACE ---
+    ?                                     45
+    CYLINDRICAL_SURFACE                   36
+    CONICAL_SURFACE                       16
+    B_SPLINE_SURFACE_WITH_KNOTS            7
+    PLANE                                  4
+  --- B-spline curves: count=146  control-points (desc) ---
+    [196, 182, 177, 146, 143, 134, 127, 119, 52, 51, 35, 34, 34, 34, 34, 34, 32, 32, 32, 30]
+    total control points = 3003
+  --- largest entity texts ---
+    #14 B_SPLINE_CURVE_WITH_KNOTS        4441 chars  head:  #14 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #5850, #2767, #949, #4553, #4036, #4074, #392, #5145, #2289, 
+    #4387 B_SPLINE_CURVE_WITH_KNOTS        4139 chars  head:  #4387 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #2538, #3143, #6714, #216, #2579, #1280, #4327, #1396, #369
+    #7226 B_SPLINE_CURVE_WITH_KNOTS        3970 chars  head:  #7226 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #3740, #2433, #4856, #5442, #5593, #1320, #6149, #722, #679
+    #4531 B_SPLINE_SURFACE_WITH_KNOTS      3552 chars  head:  #4531 = B_SPLINE_SURFACE_WITH_KNOTS ( 'NONE', 2, 3, (   ( #6775, #663, #3087, #83, #7341, #1893, #1299, #3126
+    #5727 B_SPLINE_SURFACE_WITH_KNOTS      3550 chars  head:  #5727 = B_SPLINE_SURFACE_WITH_KNOTS ( 'NONE', 2, 3, (   ( #5664, #6822, #7347, #1425, #1936, #2060, #3844, #2
+    #3816 B_SPLINE_CURVE_WITH_KNOTS        3219 chars  head:  #3816 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #3454, #3569, #6542, #5903, #5982, #556, #3612, #1116, #586
+
+========================================================================================
+电机_轴_Default_sldprt.STEP
+  parsed entities = 812
+  --- surface types actually referenced by ADVANCED_FACE ---
+    CONICAL_SURFACE                       11
+    PLANE                                  8
+    CYLINDRICAL_SURFACE                    6
+  --- B-spline curves: count=4  control-points (desc) ---
+    [10, 10, 8, 8]
+    total control points = 36
+  --- largest entity texts ---
+    #84 B_SPLINE_CURVE_WITH_KNOTS         305 chars  head:  #84 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #229, #346, #352, #92, #535, #479, #600, #32, #531, #342 ),  
+    #3 B_SPLINE_CURVE_WITH_KNOTS         304 chars  head:  #3 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #207, #17, #337, #404, #27, #277, #711, #472, #344, #271 ),  .
+    #272 B_SPLINE_CURVE_WITH_KNOTS         264 chars  head:  #272 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #622, #794, #314, #295, #684, #554, #789, #485 ),  .UNSPECIF
+    #56 B_SPLINE_CURVE_WITH_KNOTS         262 chars  head:  #56 = B_SPLINE_CURVE_WITH_KNOTS ( 'NONE', 3,  ( #263, #588, #18, #454, #699, #138, #579, #144 ),  .UNSPECIFIE
+    #724 CLOSED_SHELL                      184 chars  head:  #724 = CLOSED_SHELL ( 'NONE', ( #101, #203, #484, #546, #152, #452, #578, #103, #469, #282, #81, #140, #53, #
+    #423 PRODUCT                           157 chars  head:  #423 = PRODUCT ( '\X2\7535673a\X0\_\X2\8f74\X0\_\X2\9ed88ba4\X0\8e-14_sldprt', '\X2\7535673a\X0\_\X2\8f74\X0\

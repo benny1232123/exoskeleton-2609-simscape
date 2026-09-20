@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<!--
+  exo_multidof.urdf : 由 _stp2urdf_multidof.py 从真实装配体 STEP 生成
+  每条腿 3 段 / 3 个关节（hip 屈伸 + abduct 髋部横向被动轴 + slide 导轨滑移接口）
+  ★ 真正可动的只有 hip + abduct 两个；slide 的几何是移动副（轴 ⊥髋轴），    但复查后判定它的「行程」其实只是 2mm 装配间隙（滑块与导轨等长 72.00mm），    且工作时被双键/按键锁住、质量仅 28g ⇒ **本次按 fixed 忽略**。    恢复方法：把 ENABLE_SLIDE 改成 True（行程见 SLIDE_LO / SLIDE_HI）。
+  （再早的 strap(revolute, ∥髋轴) 已废止 —— 那根销是防转键，键阻止转动，不是铰链。）
+  ★ 渲染：已隐藏 L3 段的 <visual>（滑块/按键抱在腿杆下端，slide 既已 fixed 就不再渲染）（SHOW_SEG 控制，只删 <visual> 不删 <inertial>，动力学逐位不变）。
+  link frame 全部与世界系轴对齐（joint origin rpy = 0 0 0）
+  ★ 本文件 abduct 为真实可动 joint，slide 为 fixed
+-->
+<robot name="exo_multidof">
+  <link name="base">
+    <inertial>
+      <origin xyz="-0.111898272 -0.001270402 0.034851478" rpy="0 0 0"/>
+      <mass value="2.704316666"/>
+      <inertia ixx="0.042495930668" ixy="0.000884138796" ixz="0.003691097265"
+               iyy="0.017455837784" iyz="-0.000774144326" izz="0.051315316304"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/base.stl"/>
+      </geometry>
+      <material name="base">
+        <color rgba="0.55 0.57 0.62 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <link name="leg_L_1">
+    <inertial>
+      <origin xyz="0.027856404 0.203108587 -0.011778889" rpy="0 0 0"/>
+      <mass value="0.113798981"/>
+      <inertia ixx="0.000045612842" ixy="0.000023475413" ixz="0.000018020792"
+               iyy="0.000073141174" iyz="-0.000011721833" izz="0.000072415939"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/leg_L_1.stl"/>
+      </geometry>
+      <material name="legL1">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <link name="leg_L_2">
+    <inertial>
+      <origin xyz="0.178391040 -0.041979708 -0.089101028" rpy="0 0 0"/>
+      <mass value="0.170664486"/>
+      <inertia ixx="0.001362018549" ixy="0.000357462782" ixz="0.001032994346"
+               iyy="0.002196303684" iyz="-0.000392695992" izz="0.001173273260"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/leg_L_2.stl"/>
+      </geometry>
+      <material name="legL2">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <link name="leg_L_3">
+    <inertial>
+      <origin xyz="0.006096914 -0.000035793 0.002846257" rpy="0 0 0"/>
+      <mass value="0.028125985"/>
+      <inertia ixx="0.000013653632" ixy="-0.000000045860" ixz="0.000004688729"
+               iyy="0.000012817272" iyz="0.000000060329" izz="0.000005785096"/>
+    </inertial>
+  </link>
+  <link name="leg_R_1">
+    <inertial>
+      <origin xyz="0.026981537 -0.202978350 -0.015479202" rpy="0 0 0"/>
+      <mass value="0.113798981"/>
+      <inertia ixx="0.000045478796" ixy="-0.000023656522" ixz="0.000017694078"
+               iyy="0.000072917304" iyz="0.000011704928" izz="0.000072773855"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/leg_R_1.stl"/>
+      </geometry>
+      <material name="legR1">
+        <color rgba="0.85 0.35 0.20 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <link name="leg_R_2">
+    <inertial>
+      <origin xyz="0.178571560 0.042812984 -0.088333185" rpy="0 0 0"/>
+      <mass value="0.170664489"/>
+      <inertia ixx="0.001358803140" ixy="-0.000372460961" ixz="0.001028087125"
+               iyy="0.002184940878" iyz="0.000406438726" izz="0.001187634519"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/leg_R_2.stl"/>
+      </geometry>
+      <material name="legR2">
+        <color rgba="0.85 0.35 0.20 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <link name="leg_R_3">
+    <inertial>
+      <origin xyz="0.006096903 -0.000041699 0.002846200" rpy="0 0 0"/>
+      <mass value="0.028125985"/>
+      <inertia ixx="0.000013653628" ixy="-0.000000046051" ixz="0.000004688719"
+               iyy="0.000012817384" iyz="0.000000054463" izz="0.000005784989"/>
+    </inertial>
+  </link>
+  <joint name="hip_L" type="revolute">
+    <parent link="base"/>
+    <child  link="leg_L_1"/>
+    <origin xyz="0.113697402 0.000239573 -0.052968076" rpy="0 0 0"/>
+    <axis xyz="-0.002126698679 -0.999956730125 -0.009056215036"/>
+    <limit lower="-1.5" upper="1.5" effort="18" velocity="10"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <joint name="abduct_L" type="revolute">
+    <parent link="leg_L_1"/>
+    <child  link="leg_L_2"/>
+    <origin xyz="0.024510115 0.183659310 -0.066638075" rpy="0 0 0"/>
+    <axis xyz="0.445109686207 -0.009056215036 0.895430260944"/>
+    <limit lower="-1.5" upper="1.5" effort="18" velocity="10"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <joint name="slide_L" type="fixed">
+    <parent link="leg_L_2"/>
+    <child  link="leg_L_3"/>
+    <origin xyz="0.230782857 -0.065019618 -0.164782483" rpy="0 0 0"/>
+  </joint>
+  <joint name="hip_R" type="revolute">
+    <parent link="base"/>
+    <child  link="leg_R_1"/>
+    <origin xyz="0.113697402 0.000239573 -0.052968076" rpy="0 0 0"/>
+    <axis xyz="-0.002126698679 -0.999956730125 -0.009056215036"/>
+    <limit lower="-1.5" upper="1.5" effort="18" velocity="10"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <joint name="abduct_R" type="revolute">
+    <parent link="leg_R_1"/>
+    <child  link="leg_R_2"/>
+    <origin xyz="0.023731237 -0.182524843 -0.069954623" rpy="0 0 0"/>
+    <axis xyz="0.445109686207 -0.009056215036 0.895430260944"/>
+    <limit lower="-1.5" upper="1.5" effort="18" velocity="10"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <joint name="slide_R" type="fixed">
+    <parent link="leg_R_2"/>
+    <child  link="leg_R_3"/>
+    <origin xyz="0.231063987 0.066989330 -0.163587421" rpy="0 0 0"/>
+  </joint>
+</robot>

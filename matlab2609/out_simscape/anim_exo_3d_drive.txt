@@ -1,0 +1,43 @@
+== anim_exo_3d ==
+19-Sep-2026 14:41:23
+preset=drive  source=simscape  view=side  fps=25  reduce=1.00
+outdir=C:\Users\29408\Desktop\外骨骼\matlab2609\out_simscape
+note: 无桌面(-batch) -> 全部离屏渲染，不经 Mechanics Explorer
+
+  Simscape sim : 4455 samples, solver ode23t, StopTime 4.000 s
+motion : Simscape Multibody sm_exo_real_harness (real CAD plant)
+  N=4455   t in [0.0000 4.0000] s
+  max|q_L| = 2.116675 rad    max|q_R| = 2.183198 rad
+  max|w_L| = 5.821584 rad/s  max|w_R| = 5.596551 rad/s
+
+-- hip joint (world frame, m) --
+  origin = [0.113697402 0.000239573 -0.052968076]
+  axis   = [-0.002126699 -0.999956730 -0.009056215]   norm 1.000000000000
+  meshes = base, leg_L, leg_R
+
+-- meshes --
+  base   tris  748061 ->  748061   verts  372314   read+dec 0.8 s
+  leg_L  tris   47606 ->   47606   verts   23749   read+dec 0.1 s
+  leg_R  tris   47602 ->   47602   verts   23747   read+dec 0.1 s
+
+  sign trial s=+1 : q=+0.7: render +0.008981184 vs analytic +0.008981184 q=-1.2: render -0.176310429 vs analytic -0.176310430   |e|max = 6.368e-10 m
+  sign trial s=-1 : q=+0.7: render -0.179852073 vs analytic +0.008981184 q=-1.2: render +0.096889111 vs analytic -0.176310430   |e|max = 2.732e-01 m
+  => 采用 s = +1   residual = 6.368e-10 m
+  SGN_CHECK_OK
+
+bbox x[-0.2961 0.5091]  y[-0.2500 0.2504]  z[-0.4735 0.0922] m   view=side
+
+  frame  20/101   170 ms
+  frame  40/101   136 ms
+  frame  60/101   139 ms
+  frame  80/101   142 ms
+  frame 100/101   142 ms
+  frame 101/101   151 ms
+
+render : 101 frames, mean 154 ms/frame, max 294 ms
+poses  -> C:\Users\29408\Desktop\外骨骼\matlab2609\out_simscape\exo_real_drive_poses.png
+mp4    -> C:\Users\29408\Desktop\外骨骼\matlab2609\out_simscape\exo_real_drive.mp4
+gif    -> C:\Users\29408\Desktop\外骨骼\matlab2609\out_simscape\exo_real_drive.gif
+
+ANIM_EXO_3D_DONE
+log -> C:\Users\29408\Desktop\外骨骼\matlab2609\out_simscape\anim_exo_3d_drive.txt

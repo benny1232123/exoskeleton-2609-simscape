@@ -1,0 +1,1 @@
+﻿JUNCTION_OK C:\Users\29408\exo_work\matlab2609\simscape

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!--
+  exo_real.urdf : 由真实装配体 STEP 自动生成（_stp2urdf.py）
+  ==================================================================
+  分组 : base = motor_L + motor_R + back ; leg_L / leg_R 绕髋轴摆动
+  髋轴 : point=[113.6974 0.2396 -52.9681] mm  dir=[-0.00212670 -0.99995673 -0.00905622]
+  frame: 关节 origin rpy = 0 0 0 -> child link frame ≡ 世界系
+  单位 : m / kg / kg*m^2
+  可视 : <visual><mesh filename='meshes/<link>.stl'/> 世界系顶点(m)，
+         由 _stp2stl.py 从 _reduced3/*.stp 网格化产出；不影响动力学
+-->
+<robot name="exo_real">
+  <link name="base">
+    <inertial>
+      <origin xyz="-0.111898272 -0.001270402 0.034851478" rpy="0 0 0"/>
+      <mass value="2.704316666"/>
+      <inertia ixx="0.042495930668" ixy="0.000884138796" ixz="0.003691097265"
+               iyy="0.017455837784" iyz="-0.000774144326" izz="0.051315316304"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/base.stl"/>
+      </geometry>
+      <material name="exo_base">
+        <color rgba="0.55 0.57 0.62 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <link name="leg_L">
+    <inertial>
+      <origin xyz="0.144438335 0.161966688 -0.109883545" rpy="0 0 0"/>
+      <mass value="0.312589452"/>
+      <inertia ixx="0.003587380760" ixy="0.001271769534" ixz="0.003205192804"
+               iyy="0.006647303089" iyz="-0.001167197064" izz="0.004081916238"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/leg_L.stl"/>
+      </geometry>
+      <material name="exo_leg_L">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <link name="leg_R">
+    <inertial>
+      <origin xyz="0.143748365 -0.160572612 -0.112813061" rpy="0 0 0"/>
+      <mass value="0.312589455"/>
+      <inertia ixx="0.003575678456" ixy="-0.001316363693" ixz="0.003186671797"
+               iyy="0.006615266721" iyz="0.001198989122" izz="0.004124742323"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/leg_R.stl"/>
+      </geometry>
+      <material name="exo_leg_R">
+        <color rgba="0.85 0.35 0.20 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="hip_L" type="revolute">
+    <parent link="base"/>
+    <child  link="leg_L"/>
+    <origin xyz="0.113697402 0.000239573 -0.052968076" rpy="0 0 0"/>
+    <axis xyz="-0.002126698679 -0.999956730125 -0.009056215036"/>
+    <limit lower="-1.5" upper="1.5" effort="18" velocity="10"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <joint name="hip_R" type="revolute">
+    <parent link="base"/>
+    <child  link="leg_R"/>
+    <origin xyz="0.113697402 0.000239573 -0.052968076" rpy="0 0 0"/>
+    <axis xyz="-0.002126698679 -0.999956730125 -0.009056215036"/>
+    <limit lower="-1.5" upper="1.5" effort="18" velocity="10"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+</robot>

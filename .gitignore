@@ -1,0 +1,53 @@
+# ---- 大二进制 / CAD 源文件（本仓库只放代码 + 文档 + 报告）----
+*.stl
+*.stp
+*.step
+*.slx
+*.slxc
+*.sldprt
+*.sldasm
+*.brep
+*.mat
+*.zip
+*.pdf
+*.png
+*.gif
+*.jpg
+*.jpeg
+*.fig
+*.avi
+*.mp4
+*.exe
+*.dll
+
+# ---- 大 CAD / 中间目录 ----
+装配体/
+优龙/
+肯綮/
+_cad_backup_*/
+_reduced/
+_reduced2/
+_reduced3/
+_piptest/
+_smlink_x/
+_figs/
+_archive/
+slprj/
+
+# ---- 缓存 ----
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+*.swp
+
+# ---- 运行日志（可复现，不上传）----
+*.log
+*_log.txt
+*_console.txt
+*_stdout.txt
+
+# ---- 工作区内部 ----
+.workbuddy/
+_upload_list.txt
+_tidy_plan_tmp.txt

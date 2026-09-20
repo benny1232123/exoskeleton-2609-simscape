@@ -1,0 +1,144 @@
+﻿=== exo2609 ===
+  exo2609\dynamics.py
+  exo2609\gait.py
+  exo2609\geometry.py
+  exo2609\params.py
+  exo2609\pytest.ini
+  exo2609\torque_opt.py
+  exo2609\__init__.py
+  exo2609\.pytest_cache\.gitignore
+  exo2609\.pytest_cache\CACHEDIR.TAG
+  exo2609\.pytest_cache\README.md
+  exo2609\.pytest_cache\v\cache\nodeids
+  exo2609\.pytest_cache\v\cache\stepwise
+  exo2609\tests\conftest.py
+  exo2609\tests\test_dynamics.py
+  exo2609\tests\test_torque_opt.py
+  exo2609\__pycache__\geometry.cpython-313.pyc
+  exo2609\__pycache__\params.cpython-312.pyc
+  exo2609\__pycache__\__init__.cpython-312.pyc
+=== dynamics_model ===
+  dynamics_model\analyze_joint_axis.py
+  dynamics_model\analyze_motor_detail.py
+  dynamics_model\bilateral_hip_dynamics.py
+  dynamics_model\cad_analysis.txt
+  dynamics_model\cad_params.py
+  dynamics_model\check_format.py
+  dynamics_model\compare_gravity.png
+  dynamics_model\compare_mass_matrix.png
+  dynamics_model\compare_models.py
+  dynamics_model\compare_mpc.png
+  dynamics_model\debug_chain.py
+  dynamics_model\debug_chain2.py
+  dynamics_model\decode_stp.py
+  dynamics_model\dynamics_model_visualization.png
+  dynamics_model\exoskeleton.gif
+  dynamics_model\exoskeleton_dynamics.py
+  dynamics_model\extract_stp_geometry.py
+  dynamics_model\generate_animation.py
+  dynamics_model\generate_gif.py
+  dynamics_model\inspect_joints.swp
+  dynamics_model\inspect_sw.py
+  dynamics_model\interactive_dynamics.py
+  dynamics_model\main.py
+  dynamics_model\measure_shaft_axis.py
+  dynamics_model\mpc_controller.py
+  dynamics_model\mpc_controller_demo.png
+  dynamics_model\mpc_horizon_comparison.png
+  dynamics_model\parse_stp.py
+  dynamics_model\parse_stp_deep.py
+  dynamics_model\parse_stp_full.py
+  dynamics_model\parse_stp_full2.py
+  dynamics_model\parse_stp_graph.py
+  dynamics_model\test_bilateral_hip.py
+  dynamics_model\test_hip_knee.py
+  dynamics_model\test_integration.py
+  dynamics_model\test_mpc.py
+  dynamics_model\test_params.py
+  dynamics_model\test_parse_stp_full2.py
+  dynamics_model\visualize_dynamics.py
+  dynamics_model\.pytest_cache\.gitignore
+  dynamics_model\.pytest_cache\CACHEDIR.TAG
+  dynamics_model\.pytest_cache\README.md
+  dynamics_model\.pytest_cache\v\cache\lastfailed
+  dynamics_model\.pytest_cache\v\cache\nodeids
+  dynamics_model\.pytest_cache\v\cache\stepwise
+  dynamics_model\docs\superpowers\plans\2026-09-17-dual-model-dynamics.md
+  dynamics_model\__pycache__\bilateral_hip_dynamics.cpython-312.pyc
+  dynamics_model\__pycache__\cad_params.cpython-312.pyc
+  dynamics_model\__pycache__\exoskeleton_dynamics.cpython-312.pyc
+  dynamics_model\__pycache__\mpc_controller.cpython-312.pyc
+  dynamics_model\__pycache__\test_bilateral_hip.cpython-312-pytest-7.4.4.pyc
+  dynamics_model\__pycache__\test_hip_knee.cpython-312-pytest-7.4.4.pyc
+  dynamics_model\__pycache__\test_integration.cpython-312-pytest-7.4.4.pyc
+  dynamics_model\__pycache__\test_mpc.cpython-312-pytest-7.4.4.pyc
+  dynamics_model\__pycache__\test_params.cpython-312-pytest-7.4.4.pyc
+=== matlab2609/+exo2609 ===
+  cost_grad.m
+  discretization_info.m
+  dyn_f.m
+  dyn_jac.m
+  dyn_rollout.m
+  dyn_step.m
+  estimate.m
+  gait_ref.m
+  multidof.m
+  params_from_csv.m
+  params_paper.m
+  q_blocks.m
+  spectrum.m
+  weights_paper.m
+=== matlab2609/simscape (.m / .md / .json/.csv/.urdf/.xml) ===
+  absolutize_solid_paths.m                           1901
+  anim_exo_3d.m                                     25179
+  attach_visual_meshes.m                             5308
+  build_harness_exo2dof.m                            9849
+  check_3d_open.m                                    6010
+  compare_simscape_vs_analytical.m                   9749
+  demo_multidof.m                                    5351
+  dump_multidof_traj.m                               8338
+  exo_multidof.urdf                                  6341
+  exo_multidof_locked.urdf                           6004
+  exo_real.urdf                                      3024
+  exo2dof.urdf                                       3039
+  import_exo_multidof.m                              4293
+  import_exo2dof.m                                   4895
+  LEG_VOLUME_NAMING_RECON.md                         6660
+  legL_mass_table.csv                                1642
+  legL_xml_DataFile.m                               24995
+  legL_xml_DataFile1.m                              24995
+  mass_budget.csv                                    1691
+  MATERIAL_AND_MASS_RECON.md                        12264
+  MATERIAL_FUNCTIONAL_INFERENCE.md                  18231
+  MULTIDOF_3D_HOWTO.md                              17067
+  multidof_baseline.json                              425
+  plant_multidof.json                                4745
+  plant_params.csv                                    181
+  probe_anim_inputs.m                                2188
+  probe_harness.m                                    2371
+  probe_params.m                                     1879
+  probe_plant.m                                      3751
+  probe_ports.m                                      5886
+  probe_torque.m                                     5000
+  probe_viz_ready.m                                  4660
+  probe_xmlmodel.m                                   2493
+  probe_xmlmodel2.m                                  2110
+  probe_xmlmodel3.m                                  3402
+  quick_multidof_check.m                             5207
+  rerun_after_density.m                              5448
+  run_remultidof.m                                   1107
+  SIMSCAPE_BRIDGE_SOP.md                            29326
+  smiData_dump.csv                                   2469
+  smimport_from_xml.m                               15330
+  smlink_verify.m                                   12186
+  smoke_multidof.m                                   7124
+  STEP_FREEFORM_ANALYSIS.md                          8272
+  sw_baseline_legL.csv                               5953
+  test_multidof_analytical.m                         7836
+  validate_energy.m                                  5842
+  view_exo_real.m                                   12516
+  vis_smoke.m                                        2254
+  VISUAL_ANIM_GUIDE.md                               8847
+  XML_PATH_GUIDE.md                                 33948
+  XML_PATH_VERDICT.md                               15460
+  xml_preflight.m                                    9643

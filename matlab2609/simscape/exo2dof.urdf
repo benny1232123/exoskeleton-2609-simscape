@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+  exo2dof.urdf : Simscape Multibody twin of +exo2609 (2-DOF hip exoskeleton)
+  ==========================================================================
+  Purpose : give MATLAB/Simscape Multibody a multibody plant whose dynamics
+            reduce EXACTLY to the analytical model in +exo2609:
+                 M*qdd = T - C*qd - G_amp.*sin(q)
+            so a Simscape rollout can be compared 1:1 against dyn_rollout().
+
+  Conventions (keep these when you export your real CAD):
+    * flexion axis  = link +Y      (so inertia about flexion = Iyy)
+    * leg extends   = link -Z      (so CoM sits at (0, 0, -d))
+    * gravity       = world [0 0 -9.81]
+      => gravity torque about Y for body rotation q is  minus m*g*d*sin(q)
+      => matches  gravity_sign = -1 , G_amp = m*g*d   in +exo2609
+
+  Numbers below are the CAD values already verified in matlab2609:
+      I_hip (about hip axis) = 0.016976 kg*m^2      (M from params_from_csv)
+      m_leg                  = 1.657   kg
+      G_amp                  = 0.5544  N*m  => d = G_amp/(m*g) = 0.034104 m
+      I_com (about CoM, Y)   = I_hip - m*d^2 = 0.015049 kg*m^2
+  Replace with your SolidWorks export when the assembly is final.
+-->
+<robot name="exo2dof">
+
+  <!-- ============ world / pelvis ============ -->
+  <link name="base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <!-- ============ left leg ============ -->
+  <link name="leg_L">
+    <inertial>
+      <!-- CoM d below the hip axis, along -Z -->
+      <origin xyz="0 0 -0.034104" rpy="0 0 0"/>
+      <mass value="1.657"/>
+      <!-- about CoM: Iyy = I_hip - m*d^2.
+           Ixx / Izz are not observable from a pure hip flexion experiment,
+           so the values here are only plausible placeholders. -->
+      <inertia ixx="0.00025" ixy="0" ixz="0"
+               iyy="0.015049" iyz="0"
+               izz="0.00025"/>
+    </inertial>
+  </link>
+
+  <joint name="hip_L" type="revolute">
+    <parent link="base"/>
+    <child  link="leg_L"/>
+    <!-- hip joint 80 mm to the left of the pelvis centerline -->
+    <origin xyz="0 0.08 0" rpy="0 0 0"/>
+    <!-- flexion axis = +Y -->
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5" upper="1.5" effort="18" velocity="10"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <!-- ============ right leg ============ -->
+  <link name="leg_R">
+    <inertial>
+      <origin xyz="0 0 -0.034104" rpy="0 0 0"/>
+      <mass value="1.657"/>
+      <inertia ixx="0.00025" ixy="0" ixz="0"
+               iyy="0.015049" iyz="0"
+               izz="0.00025"/>
+    </inertial>
+  </link>
+
+  <joint name="hip_R" type="revolute">
+    <parent link="base"/>
+    <child  link="leg_R"/>
+    <!-- mirrored: 80 mm to the right -->
+    <origin xyz="0 -0.08 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5" upper="1.5" effort="18" velocity="10"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+</robot>

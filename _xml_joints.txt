@@ -1,0 +1,385 @@
+# XML 关键段落原文
+file      = D:/exo_xml/腿部设计_左.xml  (31657 bytes)
+sanitized = D:/exo_xml/腿部设计_左.sanitized.xml
+
+======================================================================
+顶层元素一览（按出现顺序，只看深度 1）
+======================================================================
+  <SimscapeMultibodyImportXML> version="2.0" xmlns="urn:mathworks:SimscapeMultibody:import" xmlns:xsi="http://w 
+
+======================================================================
+<Constraints> 段落
+======================================================================
+  原文长度 = 28 字符
+
+  子元素/层级预览（前 160 行）：
+    <Constraints>
+    </Constraints>
+
+======================================================================
+<Assemblies> 段落
+======================================================================
+  原文长度 = 26 字符
+
+  子元素/层级预览（前 160 行）：
+    <Assemblies>
+    </Assemblies>
+
+======================================================================
+<InstanceTree> 段落
+======================================================================
+  原文长度 = 11346 字符
+
+  子元素/层级预览（前 160 行）：
+    <InstanceTree>
+    <Instance name="电机_片形腿杆连接件-1" uid="电机_片形腿杆连接件-1" grounded="true" entityUid="电机_片形腿杆连接件*:*默认">
+    <Transform>
+    <Rotation>0.62346604262030902 -0.7818503060779558 0.00043884527771031578 0.000837716340589 0.00010672448399600037 -0.99999964342054493 0.7818499804506
+    <Translation>-0.0082179761797470004 -0.058264384664921003 -0.24714023937374099</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_绑缚-1" uid="腿部_绑缚-1" grounded="true" entityUid="腿部_绑缚*:*默认">
+    <Transform>
+    <Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+    <Translation>0 0 0</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_轴盖-1" uid="腿部_轴盖-1" grounded="true" entityUid="腿部_轴盖*:*默认">
+    <Transform>
+    <Rotation>0 0 1 0 -1 0 1 0 0</Rotation>
+    <Translation>0.075499999999999998 0.014999999999997 0.02</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_按键_双-2" uid="腿部_按键_双-2" grounded="true" entityUid="腿部_按键_双*:*默认">
+    <Transform>
+    <Rotation>0 0 1 0 -1 0 1 0 0</Rotation>
+    <Translation>0.088799964781938995 -0.0044999878852039999 0.039999994120098997</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_滑轨_片形-1" uid="腿部_滑轨_片形-1" grounded="true" entityUid="腿部_滑轨_片形*:*默认">
+    <Transform>
+    <Rotation>0 0 1 0 1 0 -1 0 0</Rotation>
+    <Translation>0.089549964781938995 1.2114796000000001e-08 0.075999994120099001</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_腿杆_片状V5-1" uid="腿部_腿杆_片状V5-1" grounded="true" entityUid="腿部_腿杆_片状V5*:*默认">
+    <Transform>
+    <Rotation>0.78185030607795603 -0.00043884527770985402 0.62346604262030858 -0.00010672448399600001 0.99999964342054504 0.00083771634058825905 -0.623466
+    <Translation>-0.012460188651974 -0.067252727992358999 -0.22839955321851699</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_滑块_双键-1" uid="腿部_滑块_双键-1" grounded="true" entityUid="腿部_滑块_双键*:*默认">
+    <Transform>
+    <Rotation>0 0 1 0 -1 0 1 0 0</Rotation>
+    <Translation>0.089549964781938995 1.2114796000000001e-08 0.003999994120099</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_按键_双-1" uid="腿部_按键_双-1" grounded="true" entityUid="腿部_按键_双*:*默认">
+    <Transform>
+    <Rotation>0 0 1 0 1 0 -1 0 0</Rotation>
+    <Translation>0.088799964781938995 0.0045000121147960002 0.039999994120098997</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部设计_左-6-1" uid="腿部设计_左-6-1" grounded="true" entityUid="腿部设计_左-6*:*默认">
+    <Transform>
+    <Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+    <Translation>0 0 0</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部设计_左-5-1" uid="腿部设计_左-5-1" grounded="true" entityUid="腿部设计_左-5*:*默认">
+    <Transform>
+    <Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+    <Translation>0 0 0</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_平头螺丝_M3_8-4" uid="腿部_平头螺丝_M3_8-4" grounded="true" entityUid="腿部_平头螺丝_M3_8*:*默认">
+    <Transform>
+    <Rotation>0 0 -1 -1 0 0 0 1 0</Rotation>
+    <Translation>0.085500000000000007 0.0099999999999969991 0.024</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="电机_出轴-1" uid="电机_出轴-1" grounded="true" entityUid="电机_出轴*:*默认">
+    <Transform>
+    <Rotation>0.78185030607795558 -0.62346604262030925 -0.00043884527771343373 -0.00010672448399599995 -0.00083771634059400001 0.99999964342054493 -0.6234
+    <Translation>-0.052347533485509003 -0.100306330071035 -0.27841414220768301</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_6-1" uid="腿部_埋头螺丝_M3_6-1" grounded="true" entityUid="腿部_埋头螺丝_M3_6*:*默认">
+    <Transform>
+    <Rotation>0 0 1 -0.92422459273630653 0.38184931868658384 0 -0.38184931868658384 -0.92422459273630653 0</Rotation>
+    <Translation>0.093565067951059996 0.0049745026620389996 0.014994898996472999</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_顶丝_M4_4-1" uid="腿部_顶丝_M4_4-1" grounded="true" entityUid="腿部_顶丝_M4_4*:*默认">
+    <Transform>
+    <Rotation>-0.00013268107190100005 0.78185041797974597 0.62346604262030958 -0.9999992982313014 -0.00083771608409505813 0.000837716340593987 0.001177256
+    <Translation>-0.0076752270122390004 -0.066260764135712996 -0.24244840191915401</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_8-2" uid="腿部_埋头螺丝_M3_8-2" grounded="true" entityUid="腿部_埋头螺丝_M3_8*:*默认">
+    <Transform>
+    <Rotation>-0.78185030590744165 -0.62346604283414031 0.00043884527771052004 0.00010672448422499996 -0.00083771634055999997 -0.99999964342054493 0.62346
+    <Translation>-0.0050013712346170004 -0.061233446576471 -0.20621545319235299</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="电机_轴-1" uid="电机_轴-1" grounded="true" entityUid="电机_轴*:*默认">
+    <Transform>
+    <Rotation>-0.62346604262030902 -0.00043884527771495785 0.7818503060779558 -0.00083771634059600004 0.99999964342054504 -0.00010672448399564526 -0.78184
+    <Translation>-0.026978872763396999 -0.066261820424670007 -0.23217127880039701</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_6-4" uid="腿部_埋头螺丝_M3_6-4" grounded="true" entityUid="腿部_埋头螺丝_M3_6*:*默认">
+    <Transform>
+    <Rotation>0 0 1.0000000000000002 0.99875233887784443 -0.049937616943899019 0 0.049937616943899019 0.99875233887784443 0</Rotation>
+    <Translation>0.093565067951059996 0.0050000108134650003 0.064994892489815007</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_滑轨挡片-2" uid="腿部_滑轨挡片-2" grounded="true" entityUid="腿部_滑轨挡片*:*默认">
+    <Transform>
+    <Rotation>0 0 -1 1 0 0 0 -1 0</Rotation>
+    <Translation>0.093049964781938999 -0.0074999878852029999 0.075999994120100001</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_螺丝_M3_4-1" uid="腿部_螺丝_M3_4-1" grounded="true" entityUid="腿部_螺丝_M3_4*:*默认">
+    <Transform>
+    <Rotation>0 0 -1 1 0 0 0 -1 0</Rotation>
+    <Translation>0.095049964781939 1.2114795e-08 0.0079999941200999992</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_螺丝_M3_4-2" uid="腿部_螺丝_M3_4-2" grounded="true" entityUid="腿部_螺丝_M3_4*:*默认">
+    <Transform>
+    <Rotation>0 0 -1 1 0 0 0 -1 0</Rotation>
+    <Translation>0.095049964781939 1.2114796000000001e-08 0.071999994120099997</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_顶丝_M4_4-2" uid="腿部_顶丝_M4_4-2" grounded="true" entityUid="腿部_顶丝_M4_4*:*默认">
+    <Transform>
+    <Rotation>-0.00013268107190100005 0.78185041797974597 0.62346604262030958 -0.9999992982313014 -0.00083771608409505813 0.000837716340593987 0.001177256
+    <Translation>-0.028141097077053 -0.066259331655215997 -0.22801497594199399</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_滑轨挡片-1" uid="腿部_滑轨挡片-1" grounded="true" entityUid="腿部_滑轨挡片*:*默认">
+    <Transform>
+    <Rotation>0 0 -1 1 0 0 0 -1 0</Rotation>
+    <Translation>0.093049964781938999 -0.007499987885204 0.011999994120099999</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="电机_黄铜轴套8_10_18-1" uid="电机_黄铜轴套8_10_18-1" grounded="true" entityUid="电机_黄铜轴套8_10_18*:*默认">
+    <Transform>
+    <Rotation>0.00043884527771000001 -0.62346604262030902 0.7818503060779558 -0.99999964342054504 -0.00083771634058825927 -0.00010672448399581369 0.000721
+    <Translation>-0.026978872763396999 -0.066261820424670007 -0.23217127880039701</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_6-2" uid="腿部_埋头螺丝_M3_6-2" grounded="true" entityUid="腿部_埋头螺丝_M3_6*:*默认">
+    <Transform>
+    <Rotation>0 0 1.0000000000000002 0.99875233887784443 -0.049937616943899019 0 0.049937616943899019 0.99875233887784443 0</Rotation>
+    <Translation>0.093565067951059996 -0.0050254960366290001 0.015000000626758001</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_8-1" uid="腿部_埋头螺丝_M3_8-1" grounded="true" entityUid="腿部_埋头螺丝_M3_8*:*默认">
+    <Transform>
+    <Rotation>0.999999903707394 -1.58315189e-07 0.00043884527771000001 0.00043884527771000001 0.00072150786898299995 -0.99999964342054504 -1.58315189e-07 
+    <Translation>0.007508233662631 -0.061235154168214997 -0.21619091219927999</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_6-3" uid="腿部_埋头螺丝_M3_6-3" grounded="true" entityUid="腿部_埋头螺丝_M3_6*:*默认">
+    <Transform>
+    <Rotation>0 0 1.0000000000000002 0.99875233887784443 -0.049937616943899019 0 0.049937616943899019 0.99875233887784443 0</Rotation>
+    <Translation>0.093565067951059996 -0.0049999878852040004 0.064999994120100005</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_8-3" uid="腿部_埋头螺丝_M3_8-3" grounded="true" entityUid="腿部_埋头螺丝_M3_8*:*默认">
+    <Transform>
+    <Rotation>-0.78185030590744165 -0.62346604283414031 0.00043884527771052004 0.00010672448422499996 -0.00083771634055999997 -0.99999964342054493 0.62346
+    ... 其余 52 行省略
+
+======================================================================
+<RootAssembly> 段落
+======================================================================
+  原文长度 = 11511 字符
+
+  子元素/层级预览（前 160 行）：
+    <RootAssembly name="腿部设计_左" uid="腿部设计_左" version="139">
+    <AssemblyFile name="腿部设计_左.SLDASM" type="SolidWorks Assembly"/>
+    <InstanceTree>
+    <Instance name="电机_片形腿杆连接件-1" uid="电机_片形腿杆连接件-1" grounded="true" entityUid="电机_片形腿杆连接件*:*默认">
+    <Transform>
+    <Rotation>0.62346604262030902 -0.7818503060779558 0.00043884527771031578 0.000837716340589 0.00010672448399600037 -0.99999964342054493 0.7818499804506
+    <Translation>-0.0082179761797470004 -0.058264384664921003 -0.24714023937374099</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_绑缚-1" uid="腿部_绑缚-1" grounded="true" entityUid="腿部_绑缚*:*默认">
+    <Transform>
+    <Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+    <Translation>0 0 0</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_轴盖-1" uid="腿部_轴盖-1" grounded="true" entityUid="腿部_轴盖*:*默认">
+    <Transform>
+    <Rotation>0 0 1 0 -1 0 1 0 0</Rotation>
+    <Translation>0.075499999999999998 0.014999999999997 0.02</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_按键_双-2" uid="腿部_按键_双-2" grounded="true" entityUid="腿部_按键_双*:*默认">
+    <Transform>
+    <Rotation>0 0 1 0 -1 0 1 0 0</Rotation>
+    <Translation>0.088799964781938995 -0.0044999878852039999 0.039999994120098997</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_滑轨_片形-1" uid="腿部_滑轨_片形-1" grounded="true" entityUid="腿部_滑轨_片形*:*默认">
+    <Transform>
+    <Rotation>0 0 1 0 1 0 -1 0 0</Rotation>
+    <Translation>0.089549964781938995 1.2114796000000001e-08 0.075999994120099001</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_腿杆_片状V5-1" uid="腿部_腿杆_片状V5-1" grounded="true" entityUid="腿部_腿杆_片状V5*:*默认">
+    <Transform>
+    <Rotation>0.78185030607795603 -0.00043884527770985402 0.62346604262030858 -0.00010672448399600001 0.99999964342054504 0.00083771634058825905 -0.623466
+    <Translation>-0.012460188651974 -0.067252727992358999 -0.22839955321851699</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_滑块_双键-1" uid="腿部_滑块_双键-1" grounded="true" entityUid="腿部_滑块_双键*:*默认">
+    <Transform>
+    <Rotation>0 0 1 0 -1 0 1 0 0</Rotation>
+    <Translation>0.089549964781938995 1.2114796000000001e-08 0.003999994120099</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_按键_双-1" uid="腿部_按键_双-1" grounded="true" entityUid="腿部_按键_双*:*默认">
+    <Transform>
+    <Rotation>0 0 1 0 1 0 -1 0 0</Rotation>
+    <Translation>0.088799964781938995 0.0045000121147960002 0.039999994120098997</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部设计_左-6-1" uid="腿部设计_左-6-1" grounded="true" entityUid="腿部设计_左-6*:*默认">
+    <Transform>
+    <Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+    <Translation>0 0 0</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部设计_左-5-1" uid="腿部设计_左-5-1" grounded="true" entityUid="腿部设计_左-5*:*默认">
+    <Transform>
+    <Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+    <Translation>0 0 0</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_平头螺丝_M3_8-4" uid="腿部_平头螺丝_M3_8-4" grounded="true" entityUid="腿部_平头螺丝_M3_8*:*默认">
+    <Transform>
+    <Rotation>0 0 -1 -1 0 0 0 1 0</Rotation>
+    <Translation>0.085500000000000007 0.0099999999999969991 0.024</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="电机_出轴-1" uid="电机_出轴-1" grounded="true" entityUid="电机_出轴*:*默认">
+    <Transform>
+    <Rotation>0.78185030607795558 -0.62346604262030925 -0.00043884527771343373 -0.00010672448399599995 -0.00083771634059400001 0.99999964342054493 -0.6234
+    <Translation>-0.052347533485509003 -0.100306330071035 -0.27841414220768301</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_6-1" uid="腿部_埋头螺丝_M3_6-1" grounded="true" entityUid="腿部_埋头螺丝_M3_6*:*默认">
+    <Transform>
+    <Rotation>0 0 1 -0.92422459273630653 0.38184931868658384 0 -0.38184931868658384 -0.92422459273630653 0</Rotation>
+    <Translation>0.093565067951059996 0.0049745026620389996 0.014994898996472999</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_顶丝_M4_4-1" uid="腿部_顶丝_M4_4-1" grounded="true" entityUid="腿部_顶丝_M4_4*:*默认">
+    <Transform>
+    <Rotation>-0.00013268107190100005 0.78185041797974597 0.62346604262030958 -0.9999992982313014 -0.00083771608409505813 0.000837716340593987 0.001177256
+    <Translation>-0.0076752270122390004 -0.066260764135712996 -0.24244840191915401</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_8-2" uid="腿部_埋头螺丝_M3_8-2" grounded="true" entityUid="腿部_埋头螺丝_M3_8*:*默认">
+    <Transform>
+    <Rotation>-0.78185030590744165 -0.62346604283414031 0.00043884527771052004 0.00010672448422499996 -0.00083771634055999997 -0.99999964342054493 0.62346
+    <Translation>-0.0050013712346170004 -0.061233446576471 -0.20621545319235299</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="电机_轴-1" uid="电机_轴-1" grounded="true" entityUid="电机_轴*:*默认">
+    <Transform>
+    <Rotation>-0.62346604262030902 -0.00043884527771495785 0.7818503060779558 -0.00083771634059600004 0.99999964342054504 -0.00010672448399564526 -0.78184
+    <Translation>-0.026978872763396999 -0.066261820424670007 -0.23217127880039701</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_6-4" uid="腿部_埋头螺丝_M3_6-4" grounded="true" entityUid="腿部_埋头螺丝_M3_6*:*默认">
+    <Transform>
+    <Rotation>0 0 1.0000000000000002 0.99875233887784443 -0.049937616943899019 0 0.049937616943899019 0.99875233887784443 0</Rotation>
+    <Translation>0.093565067951059996 0.0050000108134650003 0.064994892489815007</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_滑轨挡片-2" uid="腿部_滑轨挡片-2" grounded="true" entityUid="腿部_滑轨挡片*:*默认">
+    <Transform>
+    <Rotation>0 0 -1 1 0 0 0 -1 0</Rotation>
+    <Translation>0.093049964781938999 -0.0074999878852029999 0.075999994120100001</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_螺丝_M3_4-1" uid="腿部_螺丝_M3_4-1" grounded="true" entityUid="腿部_螺丝_M3_4*:*默认">
+    <Transform>
+    <Rotation>0 0 -1 1 0 0 0 -1 0</Rotation>
+    <Translation>0.095049964781939 1.2114795e-08 0.0079999941200999992</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_螺丝_M3_4-2" uid="腿部_螺丝_M3_4-2" grounded="true" entityUid="腿部_螺丝_M3_4*:*默认">
+    <Transform>
+    <Rotation>0 0 -1 1 0 0 0 -1 0</Rotation>
+    <Translation>0.095049964781939 1.2114796000000001e-08 0.071999994120099997</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_顶丝_M4_4-2" uid="腿部_顶丝_M4_4-2" grounded="true" entityUid="腿部_顶丝_M4_4*:*默认">
+    <Transform>
+    <Rotation>-0.00013268107190100005 0.78185041797974597 0.62346604262030958 -0.9999992982313014 -0.00083771608409505813 0.000837716340593987 0.001177256
+    <Translation>-0.028141097077053 -0.066259331655215997 -0.22801497594199399</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_滑轨挡片-1" uid="腿部_滑轨挡片-1" grounded="true" entityUid="腿部_滑轨挡片*:*默认">
+    <Transform>
+    <Rotation>0 0 -1 1 0 0 0 -1 0</Rotation>
+    <Translation>0.093049964781938999 -0.007499987885204 0.011999994120099999</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="电机_黄铜轴套8_10_18-1" uid="电机_黄铜轴套8_10_18-1" grounded="true" entityUid="电机_黄铜轴套8_10_18*:*默认">
+    <Transform>
+    <Rotation>0.00043884527771000001 -0.62346604262030902 0.7818503060779558 -0.99999964342054504 -0.00083771634058825927 -0.00010672448399581369 0.000721
+    <Translation>-0.026978872763396999 -0.066261820424670007 -0.23217127880039701</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_6-2" uid="腿部_埋头螺丝_M3_6-2" grounded="true" entityUid="腿部_埋头螺丝_M3_6*:*默认">
+    <Transform>
+    <Rotation>0 0 1.0000000000000002 0.99875233887784443 -0.049937616943899019 0 0.049937616943899019 0.99875233887784443 0</Rotation>
+    <Translation>0.093565067951059996 -0.0050254960366290001 0.015000000626758001</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_8-1" uid="腿部_埋头螺丝_M3_8-1" grounded="true" entityUid="腿部_埋头螺丝_M3_8*:*默认">
+    <Transform>
+    <Rotation>0.999999903707394 -1.58315189e-07 0.00043884527771000001 0.00043884527771000001 0.00072150786898299995 -0.99999964342054504 -1.58315189e-07 
+    <Translation>0.007508233662631 -0.061235154168214997 -0.21619091219927999</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_6-3" uid="腿部_埋头螺丝_M3_6-3" grounded="true" entityUid="腿部_埋头螺丝_M3_6*:*默认">
+    <Transform>
+    <Rotation>0 0 1.0000000000000002 0.99875233887784443 -0.049937616943899019 0 0.049937616943899019 0.99875233887784443 0</Rotation>
+    <Translation>0.093565067951059996 -0.0049999878852040004 0.064999994120100005</Translation>
+    </Transform>
+    </Instance>
+    <Instance name="腿部_埋头螺丝_M3_8-3" uid="腿部_埋头螺丝_M3_8-3" grounded="true" entityUid="腿部_埋头螺丝_M3_8*:*默认">
+    ... 其余 57 行省略
+
+======================================================================
+关节计数（多口径交叉验证）
+======================================================================
+  <Constraints> 内部长度 = 1
+  <Constraints> 内部原文 = '\n'
+  内部标签 = （空）
+
+  含 Constraint   次数 = 2
+  含 Joint        次数 = 0
+  含 Mate         次数 = 0
+  含 Revolute     次数 = 0
+  含 Prismatic    次数 = 0
+  含 Fixed        次数 = 0
+  含 Weld         次数 = 0
+  含 Cylindrical  次数 = 0
+  含 Ball         次数 = 0
+  含 Planar       次数 = 0
+  含 Screw        次数 = 0
+  含 Gear         次数 = 0
+  含 Rack         次数 = 0
+
+# 完成

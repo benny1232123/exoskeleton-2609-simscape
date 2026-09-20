@@ -1,0 +1,92 @@
+dir = D:\exo_xml
+STEP files = 19
+
+file                                                        bytes
+------------------------------------------------------------------
+电机_出轴_Default_sldprt.STEP                                  678429
+电机_片形腿杆连接件_Default_sldprt.STEP                             556189
+电机_轴_Default_sldprt.STEP                                    60611
+电机_黄铜轴套8_10_18_Default_sldprt.STEP                          32042
+腿部_埋头螺丝_M3_6_Default_sldprt.STEP                            19298
+腿部_埋头螺丝_M3_8_Default_sldprt.STEP                            19293
+腿部_平头螺丝_M3_8_Default_sldprt.STEP                            17766
+腿部_按键_双_Default_sldprt.STEP                                131119
+腿部_法兰注塑螺母_M3_6.3_4.6_5.5_Default_sldprt.STEP                23140
+腿部_滑块_双键_Default_sldprt.STEP                               780153
+腿部_滑轨_片形_Default_sldprt.STEP                               742257
+腿部_滑轨挡片_Default_sldprt.STEP                                 31505
+腿部_绑缚_Default_sldprt.STEP                                 1545441
+腿部_腿杆_片状V5_Default_sldprt.STEP                             903702
+腿部_螺丝_M3_4_Default_sldprt.STEP                              17729
+腿部_轴盖_Default_sldprt.STEP                                  194679
+腿部_顶丝_M4_4_Default_sldprt.STEP                              19341
+腿部设计_左-5_Default_sldprt.STEP                               752436
+腿部设计_左-6_Default_sldprt.STEP                               752438
+
+==============================================================================
+STEP structural stats (text level)
+==============================================================================
+
+------------------------------------------------------------------------------
+腿部设计_左-5_Default_sldprt.STEP
+  size = 752436 bytes   lines = 5956   total entities = 0
+  schema = CONFIG_CONTROL_DESIGN
+  file_name header = '�Ȳ����_��-5_Ĭ��_sldp',     '2026-09-19T04:43:41',     ( '' 
+  description = ( 'STEP AP203' 
+  --- top entity types ---
+  solids(MANIFOLD_SOLID_BREP)       = 0
+  shells(CLOSED_SHELL)              = 0
+  OPEN_SHELL                        = 0
+  ADVANCED_FACE                     = 0
+  CARTESIAN_POINT                   = 5106
+  B_SPLINE_SURFACE*                 = 0
+  PLANE / CYLINDRICAL_SURFACE       = 0 / 0
+  TRIANGULATED_FACE_SET             = 0
+
+------------------------------------------------------------------------------
+腿部设计_左-6_Default_sldprt.STEP
+  size = 752438 bytes   lines = 5956   total entities = 0
+  schema = CONFIG_CONTROL_DESIGN
+  file_name header = '�Ȳ����_��-6_Ĭ��_sldp',     '2026-09-19T04:43:43',     ( '' 
+  description = ( 'STEP AP203' 
+  --- top entity types ---
+  solids(MANIFOLD_SOLID_BREP)       = 0
+  shells(CLOSED_SHELL)              = 0
+  OPEN_SHELL                        = 0
+  ADVANCED_FACE                     = 0
+  CARTESIAN_POINT                   = 5106
+  B_SPLINE_SURFACE*                 = 0
+  PLANE / CYLINDRICAL_SURFACE       = 0 / 0
+  TRIANGULATED_FACE_SET             = 0
+
+------------------------------------------------------------------------------
+腿部_腿杆_片状V5_Default_sldprt.STEP
+  size = 903702 bytes   lines = 9711   total entities = 0
+  schema = CONFIG_CONTROL_DESIGN
+  file_name header = '�Ȳ�_�ȸ�_Ƭ״V5_Default_sldpr',     '2026-09-19T05:13:22',     ( '' 
+  description = ( 'STEP AP203' 
+  --- top entity types ---
+  solids(MANIFOLD_SOLID_BREP)       = 0
+  shells(CLOSED_SHELL)              = 0
+  OPEN_SHELL                        = 0
+  ADVANCED_FACE                     = 0
+  CARTESIAN_POINT                   = 5599
+  B_SPLINE_SURFACE*                 = 0
+  PLANE / CYLINDRICAL_SURFACE       = 0 / 0
+  TRIANGULATED_FACE_SET             = 0
+
+------------------------------------------------------------------------------
+腿部_轴盖_Default_sldprt.STEP
+  size = 194679 bytes   lines = 2683   total entities = 0
+  schema = CONFIG_CONTROL_DESIGN
+  file_name header = '�Ȳ�_���_Default_sldprt.',     '2026-09-19T05:13:24',     ( '' 
+  description = ( 'STEP AP203' 
+  --- top entity types ---
+  solids(MANIFOLD_SOLID_BREP)       = 0
+  shells(CLOSED_SHELL)              = 0
+  OPEN_SHELL                        = 0
+  ADVANCED_FACE                     = 0
+  CARTESIAN_POINT                   = 440
+  B_SPLINE_SURFACE*                 = 0
+  PLANE / CYLINDRICAL_SURFACE       = 0 / 0
+  TRIANGULATED_FACE_SET             = 0

@@ -1,0 +1,91 @@
+﻿exo2609          files=   18        0.13 MB
+matlab2609       files=  230       75.19 MB
+dynamics_model   files=   55        2.84 MB
+--- matlab2609 subdirs ---
+  +exo2609               files=   14        0.04 MB
+  out                    files=    4        0.15 MB
+  out_simscape           files=   30       27.89 MB
+  simscape               files=  144       46.94 MB
+  slprj                  files=    6        0.00 MB
+  solidworks             files=   14        0.11 MB
+--- matlab2609 top-level files ---
+  check_gradient2609.m                         2142
+  demo2609_run.m                               6486
+  MULTIDOF_DYNAMICS_GUIDE.md                  16344
+  README.md                                   21761
+  selftest2609.m                               3412
+  sm_exo2dof_harness.slxc                      5091
+  sm_exo_real_harness.slxc                     5091
+  _cg.log                                       364
+  _cmp2_console.txt                             621
+  _cmp3_console.txt                             436
+  _demo.log                                    1580
+  _demo2.log                                   1581
+  _ph_console.txt                               613
+  _pp_console.txt                                13
+  _real_console.txt                             719
+  _smimport.log                                1666
+  _st.log                                      1816
+  _t_urdf_console.txt                           630
+--- root .py / .md / .html ---
+  _axis_find.py                                    6119
+  _check_lr.py                                     2025
+  _dof_forensic_fig.py                             8393
+  _joint_candidates.py                             8810
+  _legL_instance_recon.py                          3082
+  _legL_mass_table.csv                             1655
+  _legL_mass_table.py                              4326
+  _legL_xcheck_py_vs_sw.py                         7174
+  _make_sw_csv.py                                  4176
+  _meshfix.py                                      6004
+  _meshfix2.py                                     5595
+  _multidof_anim.py                                7877
+  _multidof_compare.py                             7801
+  _multidof_dyn.py                                22904
+  _multidof_export.py                              2796
+  _multidof_render.py                             14895
+  _plane_faces.py                                  9103
+  _report_2609.py                                 37069
+  _slide_check.py                                  6084
+  _slide_range.py                                  6352
+  _slide_recheck.py                                5748
+  _step_check_all.py                               4042
+  _step_probe.py                                   4398
+  _step_probe_A.py                                 2829
+  _step_probe_B.py                                 3709
+  _step_probe_C.py                                 1645
+  _step_probe_D.py                                 2593
+  _step_probe_E.py                                 2889
+  _step_probe_F.py                                 3009
+  _stl_preview.py                                  8448
+  _stp2plant.py                                    6798
+  _stp2stl.py                                     24151
+  _stp2urdf.py                                    16210
+  _stp2urdf_multidof.py                           25291
+  _strap_axis_check.py                             5725
+  _sw_api_names.py                                 2100
+  _sw_baseline.py                                  4537
+  _sw_cfg_meta.py                                  3611
+  _sw_cfgs.py                                      3357
+  _sw_cfgs2.py                                     4753
+  _sw_cfgs3.py                                     3793
+  _sw_export_step.py                               2636
+  _sw_export_step2.py                              3220
+  _sw_ids.py                                       1630
+  _sw_list_materials.py                            1559
+  _sw_mat_probe.py                                 3711
+  _sw_material_test.py                             4744
+  _sw_mates.py                                     6375
+  _sw_mates2.py                                    3949
+  _sw_ml_xcheck.py                                 3641
+  _sw_step_probe.py                                6890
+  _tidy_dirs.py                                    5389
+  _tidy_root.py                                   13100
+  _trash_scratch.py                                3115
+  _xml_dump.py                                     6886
+  _xml_fix.py                                      7810
+  _xml_group_names.py                              1913
+  _xml_inspect.py                                  9888
+  _xml_joints.py                                   4074
+  _xml_vs_py.py                                    8236
+  2609_report.html                               401038

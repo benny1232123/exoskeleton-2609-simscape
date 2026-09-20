@@ -1,0 +1,1 @@
+ANALYTIC_OK frames=63 maxqL=1.818159 maxqR=1.818455 sign=+1 resid=6.368e-10

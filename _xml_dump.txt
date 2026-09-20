@@ -1,0 +1,297 @@
+# XML 关键内容 dump
+file = D:/exo_xml/腿部设计_左.xml  (31657 bytes)
+
+======================================================================
+A. <Parts> —— 刚体质量属性
+======================================================================
+<Part> 个数 = 19
+
+  Part: 电机_出轴
+        uid=电机_出轴*:*默认
+        Mass = 0.012342
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 电机_出轴_默认b_sldprt.STEP
+        SLDPRT(回链) = 电机_出轴.SLDPRT
+
+  Part: 电机_片形腿杆连接件
+        uid=电机_片形腿杆连接件*:*默认
+        Mass = 0.006179
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 电机_片形腿杆连接件_默认_sldprt.STEP
+        SLDPRT(回链) = 电机_片形腿杆连接件.SLDPRT
+
+  Part: 电机_轴
+        uid=电机_轴*:*默认
+        Mass = 0.001506
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 电机_轴_默认8e-14_sldprt.STEP
+        SLDPRT(回链) = 电机_轴.SLDPRT
+
+  Part: 电机_黄铜轴套8_10_18
+        uid=电机_黄铜轴套8_10_18*:*默认
+        Mass = 0.000507
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 电机_黄铜轴套8_10_18_默认_sldprt.STEP
+        SLDPRT(回链) = 电机_黄铜轴套8_10_18.SLDPRT
+
+  Part: 腿部_埋头螺丝_M3_6
+        uid=腿部_埋头螺丝_M3_6*:*默认
+        Mass = 0.000059
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_埋头螺丝_M3_6_默认_sldprt.STEP
+        SLDPRT(回链) = 腿部_埋头螺丝_M3_6.SLDPRT
+
+  Part: 腿部_埋头螺丝_M3_8
+        uid=腿部_埋头螺丝_M3_8*:*默认
+        Mass = 0.000073
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_埋头螺丝_M3_8_默认_sldprt.STEP
+        SLDPRT(回链) = 腿部_埋头螺丝_M3_8.SLDPRT
+
+  Part: 腿部_平头螺丝_M3_8
+        uid=腿部_平头螺丝_M3_8*:*默认
+        Mass = 0.000085
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_平头螺丝_M3_8_默认_sldprt.STEP
+        SLDPRT(回链) = 腿部_平头螺丝_M3_8.SLDPRT
+
+  Part: 腿部_按键_双
+        uid=腿部_按键_双*:*默认
+        Mass = 0.000844
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_按键_双_默认g_sldprt.STEP
+        SLDPRT(回链) = 腿部_按键_双.SLDPRT
+
+  Part: 腿部_法兰注塑螺母_M3_6.3_4.6_5.5
+        uid=腿部_法兰注塑螺母_M3_6.3_4.6_5.5*:*默认
+        Mass = 0.000052
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_法兰注塑螺母_M3_6.3_4.6_5.5_默认_sldprt.STEP
+        SLDPRT(回链) = 腿部_法兰注塑螺母_M3_6.3_4.6_5.5.SLDPRT
+
+  Part: 腿部_滑块_双键
+        uid=腿部_滑块_双键*:*默认
+        Mass = 0.009667
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_滑块_双键_默认_sldprt.STEP
+        SLDPRT(回链) = 腿部_滑块_双键.SLDPRT
+
+  Part: 腿部_滑轨_片形
+        uid=腿部_滑轨_片形*:*默认
+        Mass = 0.006804
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_滑轨_片形_默认(ń�b01)�ۆ�Zp�jh��b�b_sldprt.STEP
+        SLDPRT(回链) = 腿部_滑轨_片形.SLDPRT
+
+  Part: 腿部_滑轨挡片
+        uid=腿部_滑轨挡片*:*默认
+        Mass = 0.000220
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_滑轨挡片_默认e_sldprt.STEP
+        SLDPRT(回链) = 腿部_滑轨挡片.SLDPRT
+
+  Part: 腿部_绑缚
+        uid=腿部_绑缚*:*默认
+        Mass = 0.024817
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_绑缚_默认��e_sldprt.STEP
+        SLDPRT(回链) = 腿部_绑缚.SLDPRT
+
+  Part: 腿部_腿杆_片状V5
+        uid=腿部_腿杆_片状V5*:*默认
+        Mass = 0.032271
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_腿杆_片状V5_默认�����v�r_4?��5?'�???!�>?e?���5?'�???W;E�L??̰�?_sldprt.STE…
+        SLDPRT(回链) = 腿部_腿杆_片状V5.SLDPRT
+
+  Part: 腿部_螺丝_M3_4
+        uid=腿部_螺丝_M3_4*:*默认
+        Mass = 0.000057
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_螺丝_M3_4_默认_sldprt.STEP
+        SLDPRT(回链) = 腿部_螺丝_M3_4.SLDPRT
+
+  Part: 腿部_轴盖
+        uid=腿部_轴盖*:*默认
+        Mass = 0.003511
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_轴盖_默认xJ�>_sldprt.STEP
+        SLDPRT(回链) = 腿部_轴盖.SLDPRT
+
+  Part: 腿部_顶丝_M4_4
+        uid=腿部_顶丝_M4_4*:*默认
+        Mass = 0.000050
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部_顶丝_M4_4_默认_sldprt.STEP
+        SLDPRT(回链) = 腿部_顶丝_M4_4.SLDPRT
+
+  Part: 腿部设计_左-5
+        uid=腿部设计_左-5*:*默认
+        Mass = 0.000020
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部设计_左-5_默认_sldprt.STEP
+        SLDPRT(回链) = 腿部设计_左-5.SLDPRT
+
+  Part: 腿部设计_左-6
+        uid=腿部设计_左-6*:*默认
+        Mass = 0.000020
+        CoM  = {}
+        Inertia keys = []
+        Inertia vals = []
+        STEP = 腿部设计_左-6_默认_sldprt.STEP
+        SLDPRT(回链) = 腿部设计_左-6.SLDPRT
+
+----------------------------------------------------------------------
+Σ Mass = 0.099084
+Mass==0 的零件 = 0  
+★ 若有 mass==0 的零件，说明它在 SolidWorks 里没赋材质 → Simscape 里会变成无质量刚体，动力学直接废掉。
+
+======================================================================
+B. <Constraints> —— 关节（mates 映射的结果）
+======================================================================
+!! 根下没有 <Constraints>
+
+======================================================================
+C. <InstanceTree> —— 装配层次 + grounded
+======================================================================
+!! 根下没有 <InstanceTree>
+
+======================================================================
+D. 每个 Instance 的 Transform（姿态/位置）
+======================================================================
+  电机_片形腿杆连接件-1                            T={}
+                                          R={}
+  腿部_绑缚-1                                 T={}
+                                          R={}
+  腿部_轴盖-1                                 T={}
+                                          R={}
+  腿部_按键_双-2                               T={}
+                                          R={}
+  腿部_滑轨_片形-1                              T={}
+                                          R={}
+  腿部_腿杆_片状V5-1                            T={}
+                                          R={}
+  腿部_滑块_双键-1                              T={}
+                                          R={}
+  腿部_按键_双-1                               T={}
+                                          R={}
+  腿部设计_左-6-1                              T={}
+                                          R={}
+  腿部设计_左-5-1                              T={}
+                                          R={}
+  腿部_平头螺丝_M3_8-4                          T={}
+                                          R={}
+  电机_出轴-1                                 T={}
+                                          R={}
+  腿部_埋头螺丝_M3_6-1                          T={}
+                                          R={}
+  腿部_顶丝_M4_4-1                            T={}
+                                          R={}
+  腿部_埋头螺丝_M3_8-2                          T={}
+                                          R={}
+  电机_轴-1                                  T={}
+                                          R={}
+  腿部_埋头螺丝_M3_6-4                          T={}
+                                          R={}
+  腿部_滑轨挡片-2                               T={}
+                                          R={}
+  腿部_螺丝_M3_4-1                            T={}
+                                          R={}
+  腿部_螺丝_M3_4-2                            T={}
+                                          R={}
+  腿部_顶丝_M4_4-2                            T={}
+                                          R={}
+  腿部_滑轨挡片-1                               T={}
+                                          R={}
+  电机_黄铜轴套8_10_18-1                        T={}
+                                          R={}
+  腿部_埋头螺丝_M3_6-2                          T={}
+                                          R={}
+  腿部_埋头螺丝_M3_8-1                          T={}
+                                          R={}
+  腿部_埋头螺丝_M3_6-3                          T={}
+                                          R={}
+  腿部_埋头螺丝_M3_8-3                          T={}
+                                          R={}
+  腿部_埋头螺丝_M3_8-4                          T={}
+                                          R={}
+  腿部_法兰注塑螺母_M3_6.3_4.6_5.5-1              T={}
+                                          R={}
+  腿部_法兰注塑螺母_M3_6.3_4.6_5.5-2              T={}
+                                          R={}
+  腿部_法兰注塑螺母_M3_6.3_4.6_5.5-4              T={}
+                                          R={}
+  腿部_平头螺丝_M3_8-1                          T={}
+                                          R={}
+  腿部_平头螺丝_M3_8-2                          T={}
+                                          R={}
+  腿部_平头螺丝_M3_8-3                          T={}
+                                          R={}
+  腿部_法兰注塑螺母_M3_6.3_4.6_5.5-3              T={}
+                                          R={}
+  有 Transform 的 Instance = 35
+
+======================================================================
+E. 单位声明
+======================================================================
+  <Created> {'by': '', 'on': '09/19/26||12:43:14', 'using': 'Simscape Multibody Link Version 7.4', 'from': 'SolidWorks 32.5.0'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <DataUnits> {'mass': 'kilogram', 'length': 'meter'}
+  <AssemblyFile> {'name': '腿部设计_左.SLDASM', 'type': 'SolidWorks Assembly'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+  <ModelUnits> {'mass': 'kilogram', 'length': 'millimeter'}
+
+# 完成

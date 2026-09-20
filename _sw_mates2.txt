@@ -1,0 +1,19 @@
+== 已打开的装配体: 腿部设计_左 ==
+
+IassemblyDoc.GetMates -> None
+---- 腿部设计_左 特征树 ----
+特征总数 = 1
+   ?                                  1
+
+零部件 35 : IsFixed=True 35 , IsFixed=False 0
+
+== 顶层主装配体 ==
+path = C:\Users\29408\Desktop\外骨骼\装配体\“林-Ⅰ”髋关节外骨骼机器人开发平台V0_1_1.SLDASM
+exists on disk = True
+OpenDoc -> True   (200.6 s)
+ActiveDoc = “林-Ⅰ”髋关节外骨骼机器人开发平台V0_1_1
+零部件总数 = 5
+IsFixed=True = 5 / 5
+---- 主装配体 特征树 ----
+特征总数 = 1
+   ?                                  1

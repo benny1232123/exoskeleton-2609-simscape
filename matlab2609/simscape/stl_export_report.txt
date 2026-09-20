@@ -1,0 +1,84 @@
+== STEP -> STL 可视化网格导出报告 ==
+link frame ≡ 世界系（关节 origin rpy = 0 0 0），STL 顶点直接写世界系坐标（m）
+来源: C:\Users\29408\Desktop\外骨骼\_reduced3
+修坏面: 开启
+
+-- back -> link 'base' --
+  _map_solids 映射到 msb = 260 ; 零件定义 pd = 196 ; 装配实例槽位 = 526
+  ! part 'User Library-CA-L01-1' pd=18702: 1 named volume vs 9 solid -> left for step 2
+  ! part 'Open CASCADE STEP translator 7.5 1.132.1.1' pd=18683: 1 named volume vs 17 solid -> left for step 2
+  ! part '00029265' pd=18716: 1 named volume vs 2 solid -> left for step 2
+  导入 31.9 s ; 全模型 heal=off ; volumes 260->260 ; vol_sum 498103.426->498103.426 mm^3 (d=+0.00000)
+  网格化失败(第 1 轮，12.1 s): Impossible to mesh periodic surface 19349
+    -> 局部 heal 清掉非法体积 [135]（其外形缺失），重试
+  网格化失败(第 2 轮，19.0 s): Impossible to mesh periodic surface 29551
+    -> 删自由面 29551
+  网格化失败(第 3 轮，19.1 s): Impossible to mesh periodic surface 29662
+    -> 删自由面 29662
+  网格化失败(第 4 轮，18.9 s): Impossible to mesh periodic surface 29679
+    -> 删自由面 29679
+  网格化失败(第 5 轮，173.9 s): Impossible to mesh periodic surface 23149
+    -> 局部 heal 清掉非法体积 [209]（其外形缺失），重试
+  网格化失败(第 6 轮，19.1 s): The 1D mesh seems not to be forming a closed loop
+  ⚠ 网格化未完全成功（6 轮），改为收割已网格化的部分
+  几何匹配: 现场体积=258 ; msb->tag 命中=258 ; 未匹配 msb=2 ; 未用 tag=0
+  ⚠ 未匹配 msb（前 8）= [85676, 85448]
+  网格化: volumes=258  有三角面=258  三角面总数=319921  轮次=6
+  面覆盖率: 28892/28918 = 99.9101%   (generate 未跑完全程)
+  ⚠ 丢弃的体积 = [135, 209]（对应零件外形缺失）
+  写入实例副本 = 621（0 个 msb 因无网格/无 pd 被跳过）
+
+-- leg_L -> link 'leg_L' --
+  _map_solids 映射到 msb = 19 ; 零件定义 pd = 18 ; 装配实例槽位 = 34
+  ! step2: 3 unnamed volume(s) -> 3 empty solid slot(s)
+  导入 2.0 s ; 全模型 heal=off ; volumes 19->19 ; vol_sum 99029.547->99029.547 mm^3 (d=+0.00000)
+  网格化成功（第 1 轮，6.5 s）
+  几何匹配: 现场体积=19 ; msb->tag 命中=19 ; 未匹配 msb=0 ; 未用 tag=0
+  网格化: volumes=19  有三角面=19  三角面总数=44880  轮次=1
+  面覆盖率: 1540/1540 = 100.0000%
+  写入实例副本 = 35（0 个 msb 因无网格/无 pd 被跳过）
+
+-- leg_R -> link 'leg_R' --
+  _map_solids 映射到 msb = 19 ; 零件定义 pd = 18 ; 装配实例槽位 = 34
+  ! step2: 3 unnamed volume(s) -> 3 empty solid slot(s)
+  导入 1.8 s ; 全模型 heal=off ; volumes 19->19 ; vol_sum 99029.548->99029.548 mm^3 (d=+0.00000)
+  网格化成功（第 1 轮，6.5 s）
+  几何匹配: 现场体积=19 ; msb->tag 命中=19 ; 未匹配 msb=0 ; 未用 tag=0
+  网格化: volumes=19  有三角面=19  三角面总数=44876  轮次=1
+  面覆盖率: 1540/1540 = 100.0000%
+  写入实例副本 = 35（0 个 msb 因无网格/无 pd 被跳过）
+
+-- motor_L -> link 'base' --
+  _map_solids 映射到 msb = 8 ; 零件定义 pd = 8 ; 装配实例槽位 = 9
+  导入 1.8 s ; 全模型 heal=off ; volumes 8->8 ; vol_sum 131436.295->131436.295 mm^3 (d=+0.00000)
+  网格化成功（第 1 轮，1.9 s）
+  几何匹配: 现场体积=8 ; msb->tag 命中=8 ; 未匹配 msb=0 ; 未用 tag=0
+  网格化: volumes=8  有三角面=8  三角面总数=32434  轮次=1
+  面覆盖率: 2138/2138 = 100.0000%
+  写入实例副本 = 9（0 个 msb 因无网格/无 pd 被跳过）
+
+-- motor_R -> link 'base' --
+  _map_solids 映射到 msb = 244 ; 零件定义 pd = 244 ; 装配实例槽位 = 452
+  导入 35.0 s ; 全模型 heal=off ; volumes 244->244 ; vol_sum 146815.540->146815.540 mm^3 (d=+0.00000)
+  网格化成功（第 1 轮，17.0 s）
+  几何匹配: 现场体积=244 ; msb->tag 命中=244 ; 未匹配 msb=0 ; 未用 tag=0
+  网格化: volumes=244  有三角面=244  三角面总数=256002  轮次=1
+  面覆盖率: 32278/32278 = 100.0000%
+  写入实例副本 = 452（0 个 msb 因无网格/无 pd 被跳过）
+
+-- 写出 STL --
+  base    748197 三角面   35.68 MB  bbox=[-0.0795 -0.2201 -0.0948] .. [0.1541 0.2206 0.0624] m
+  leg_L    47618 三角面    2.27 MB  bbox=[0.0948 0.0670 -0.3272] .. [0.4046 0.2181 -0.0290] m
+  leg_R    47614 三角面    2.27 MB  bbox=[0.0939 -0.2175 -0.3294] .. [0.4041 -0.0632 -0.0329] m
+  合计 843429 三角面
+
+-- 坏面修复汇总 --
+  back     网格=OK 轮次= 6 删面= 3 丢体积= 2 无网格体积=0 面覆盖=99.910%
+  leg_L    网格=OK 轮次= 1 删面= 0 丢体积= 0 无网格体积=0 面覆盖=100.000%
+  leg_R    网格=OK 轮次= 1 删面= 0 丢体积= 0 无网格体积=0 面覆盖=100.000%
+  motor_L  网格=OK 轮次= 1 删面= 0 丢体积= 0 无网格体积=0 面覆盖=100.000%
+  motor_R  网格=OK 轮次= 1 删面= 0 丢体积= 0 无网格体积=0 面覆盖=100.000%
+  注意：本步骤只产出**可视化**网格；<inertial> 来自 _mass_*.json 那条独立链路，
+        删面/丢面不可能影响动力学。
+
+VERDICT: STL_OK   耗时 440.4 s

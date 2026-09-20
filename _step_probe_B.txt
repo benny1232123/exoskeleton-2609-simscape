@@ -1,0 +1,80 @@
+step_probe_B —— 可疑件的真实几何
+========================================================================================
+
+----------------------------------------------------------------------------------------
+腿部设计_左-5_Default_sldprt.STEP   (752436 bytes)
+  [text] ADVANCED_FACE=16  CLOSED_SHELL=1  OPEN_SHELL=0  MANIFOLD_SOLID_BREP=1
+  [text] PLANE=6  CYLINDRICAL_SURFACE=0  BSPLINE_SURFACE=0  CARTESIAN_POINT=5106
+  [occ ] points=20 curves=32 surfaces=16 volumes=1
+  [occ ] bbox_min = (85.4469, -5.1559, 34.1468) mm
+  [occ ] bbox_max = (89.1518, 10.6255, 37.8600) mm
+  [occ ] size     = (3.7049, 15.7814, 3.7132) mm
+  [occ ] volume   = 21.511714 mm^3
+  [occ ] area     = 168.747131 mm^2
+  [diag] d_char = 15.781 mm ; 6/d_char = 0.3802 1/mm ; area/vol = 7.8444
+  [diag] bbox_volume = 217.1054 mm^3 ; fill = 9.908e-02
+
+----------------------------------------------------------------------------------------
+腿部设计_左-6_Default_sldprt.STEP   (752438 bytes)
+  [text] ADVANCED_FACE=16  CLOSED_SHELL=1  OPEN_SHELL=0  MANIFOLD_SOLID_BREP=1
+  [text] PLANE=6  CYLINDRICAL_SURFACE=0  BSPLINE_SURFACE=0  CARTESIAN_POINT=5106
+  [occ ] points=20 curves=32 surfaces=16 volumes=1
+  [occ ] bbox_min = (85.4469, -5.1559, 42.1468) mm
+  [occ ] bbox_max = (89.1518, 10.5812, 45.8600) mm
+  [occ ] size     = (3.7049, 15.7371, 3.7132) mm
+  [occ ] volume   = 21.508049 mm^3
+  [occ ] area     = 168.747131 mm^2
+  [diag] d_char = 15.737 mm ; 6/d_char = 0.3813 1/mm ; area/vol = 7.8458
+  [diag] bbox_volume = 216.4963 mm^3 ; fill = 9.935e-02
+
+----------------------------------------------------------------------------------------
+腿部_腿杆_片状V5_Default_sldprt.STEP   (903702 bytes)
+  [text] ADVANCED_FACE=108  CLOSED_SHELL=1  OPEN_SHELL=0  MANIFOLD_SOLID_BREP=1
+  [text] PLANE=4  CYLINDRICAL_SURFACE=36  BSPLINE_SURFACE=7  CARTESIAN_POINT=5599
+  [occ ] points=156 curves=269 surfaces=108 volumes=1
+  [occ ] bbox_min = (-109.3880, -4.6158, -0.0469) mm
+  [occ ] bbox_max = (15.0756, 82.0927, 312.6498) mm
+  [occ ] size     = (124.4636, 86.7085, 312.6967) mm
+  [occ ] volume   = 31973.561451 mm^3
+  [occ ] area     = 22099.096728 mm^2
+  [diag] d_char = 312.697 mm ; 6/d_char = 0.0192 1/mm ; area/vol = 0.6912
+  [diag] bbox_volume = 3374638.2590 mm^3 ; fill = 9.475e-03
+
+----------------------------------------------------------------------------------------
+腿部_轴盖_Default_sldprt.STEP   (194679 bytes)
+  [text] ADVANCED_FACE=80  CLOSED_SHELL=1  OPEN_SHELL=0  MANIFOLD_SOLID_BREP=1
+  [text] PLANE=29  CYLINDRICAL_SURFACE=48  BSPLINE_SURFACE=0  CARTESIAN_POINT=440
+  [occ ] points=143 curves=216 surfaces=80 volumes=1
+  [occ ] bbox_min = (-0.0000, -0.9100, -2.2629) mm
+  [occ ] bbox_max = (40.0000, 30.9100, 5.0000) mm
+  [occ ] size     = (40.0000, 31.8200, 7.2629) mm
+  [occ ] volume   = 3511.289548 mm^3
+  [occ ] area     = 3999.283151 mm^2
+  [diag] d_char = 40.000 mm ; 6/d_char = 0.1500 1/mm ; area/vol = 1.1390
+  [diag] bbox_volume = 9244.1580 mm^3 ; fill = 3.798e-01
+
+----------------------------------------------------------------------------------------
+电机_轴_Default_sldprt.STEP   (60611 bytes)
+  [text] ADVANCED_FACE=25  CLOSED_SHELL=1  OPEN_SHELL=0  MANIFOLD_SOLID_BREP=1
+  [text] PLANE=8  CYLINDRICAL_SURFACE=6  BSPLINE_SURFACE=0  CARTESIAN_POINT=151
+  [occ ] points=35 curves=58 surfaces=25 volumes=1
+  [occ ] bbox_min = (-4.0000, -4.0000, -7.0000) mm
+  [occ ] bbox_max = (4.0000, 4.0000, 25.0000) mm
+  [occ ] size     = (8.0000, 8.0000, 32.0000) mm
+  [occ ] volume   = 1506.094691 mm^3
+  [occ ] area     = 868.749552 mm^2
+  [diag] d_char = 32.000 mm ; 6/d_char = 0.1875 1/mm ; area/vol = 0.5768
+  [diag] bbox_volume = 2048.0003 mm^3 ; fill = 7.354e-01
+
+----------------------------------------------------------------------------------------
+腿部_滑轨挡片_Default_sldprt.STEP   (31505 bytes)
+  [text] ADVANCED_FACE=12  CLOSED_SHELL=1  OPEN_SHELL=0  MANIFOLD_SOLID_BREP=1
+  [text] PLANE=6  CYLINDRICAL_SURFACE=6  BSPLINE_SURFACE=0  CARTESIAN_POINT=63
+  [occ ] points=20 curves=30 surfaces=12 volumes=1
+  [occ ] bbox_min = (-0.0000, -0.0000, -0.0000) mm
+  [occ ] bbox_max = (15.0000, 8.0000, 2.0000) mm
+  [occ ] size     = (15.0000, 8.0000, 2.0000) mm
+  [occ ] volume   = 220.052213 mm^3
+  [occ ] area     = 327.007961 mm^2
+  [diag] d_char = 15.000 mm ; 6/d_char = 0.4000 1/mm ; area/vol = 1.4860
+  [diag] bbox_volume = 240.0000 mm^3 ; fill = 9.169e-01

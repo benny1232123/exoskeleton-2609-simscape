@@ -1,0 +1,3 @@
+base.stl: 37409934 bytes (35.68 MB)  ascii_hint=False  tri_if_binary=748197  (84+50*tri=37409934)
+leg_L.stl: 2380984 bytes (2.27 MB)  ascii_hint=False  tri_if_binary=47618  (84+50*tri=2380984)
+leg_R.stl: 2380784 bytes (2.27 MB)  ascii_hint=False  tri_if_binary=47614  (84+50*tri=2380784)

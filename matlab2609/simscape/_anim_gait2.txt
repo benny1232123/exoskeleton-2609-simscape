@@ -1,0 +1,1 @@
+frames=151 ms=140.6 maxqL=2.4744 maxqR=2.5035 sign=+1 resid=6.368e-10

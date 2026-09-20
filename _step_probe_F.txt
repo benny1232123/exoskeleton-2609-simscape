@@ -1,0 +1,114 @@
+========================================================================================
+腿部设计_左-5_Default_sldprt.STEP   entities=5456  file=746448 chars
+  --- entity type histogram (fixed parser) ---
+    CARTESIAN_POINT                      5106
+    ORIENTED_EDGE                          64
+    DIRECTION                              32
+    EDGE_CURVE                             32
+    VERTEX_POINT                           20
+    EDGE_LOOP                              18
+    ADVANCED_FACE                          16
+    FACE_OUTER_BOUND                       16
+    AXIS2_PLACEMENT_3D                     15
+    BOUNDED_CURVE                          12
+    B_SPLINE_CURVE_WITH_KNOTS              10
+    BOUNDED_SURFACE                        10
+  --- surfaces of the 16 faces ---
+    BOUNDED_SURFACE                        10
+    PLANE                                   6
+  --- orphan counts (referenced by nothing) ---
+    CARTESIAN_POINT                total=5106   orphan=0     
+    DIRECTION                      total=32     orphan=0     
+    AXIS2_PLACEMENT_3D             total=15     orphan=0     
+    VECTOR                         total=2      orphan=0     
+    LINE                           total=2      orphan=0     
+    CIRCLE                         total=8      orphan=0     
+    => CARTESIAN_POINT orphan 0 / 5106 (0.0%)
+
+  --- bytes by entity type (top 8) ---
+    CARTESIAN_POINT                       547708   73.9%
+    BOUNDED_SURFACE                       147477   19.9%
+    BOUNDED_CURVE                          20534    2.8%
+    B_SPLINE_CURVE_WITH_KNOTS               5824    0.8%
+    DIRECTION                               3367    0.5%
+    ORIENTED_EDGE                           3306    0.4%
+    EDGE_CURVE                              1796    0.2%
+    EDGE_LOOP                               1047    0.1%
+
+========================================================================================
+腿部_腿杆_片状V5_Default_sldprt.STEP   entities=7848  file=893958 chars
+  --- entity type histogram (fixed parser) ---
+    CARTESIAN_POINT                      5599
+    ORIENTED_EDGE                         538
+    DIRECTION                             304
+    EDGE_CURVE                            269
+    VERTEX_POINT                          156
+    B_SPLINE_CURVE_WITH_KNOTS             146
+    AXIS2_PLACEMENT_3D                    126
+    EDGE_LOOP                             117
+    ADVANCED_FACE                         108
+    FACE_OUTER_BOUND                      108
+    CIRCLE                                 69
+    LINE                                   52
+  --- surfaces of the 108 faces ---
+    BOUNDED_SURFACE                        45
+    CYLINDRICAL_SURFACE                    36
+    CONICAL_SURFACE                        16
+    B_SPLINE_SURFACE_WITH_KNOTS             7
+    PLANE                                   4
+  --- orphan counts (referenced by nothing) ---
+    CARTESIAN_POINT                total=5599   orphan=0     
+    DIRECTION                      total=304    orphan=0     
+    AXIS2_PLACEMENT_3D             total=126    orphan=0     
+    VECTOR                         total=52     orphan=0     
+    LINE                           total=52     orphan=0     
+    CIRCLE                         total=69     orphan=0     
+    => CARTESIAN_POINT orphan 0 / 5599 (0.0%)
+
+  --- bytes by entity type (top 8) ---
+    CARTESIAN_POINT                       604582   68.3%
+    B_SPLINE_CURVE_WITH_KNOTS              80023    9.0%
+    BOUNDED_SURFACE                        57677    6.5%
+    DIRECTION                              31840    3.6%
+    ORIENTED_EDGE                          27820    3.1%
+    B_SPLINE_SURFACE_WITH_KNOTS            15925    1.8%
+    EDGE_CURVE                             15202    1.7%
+    EDGE_LOOP                               7652    0.9%
+
+========================================================================================
+电机_轴_Default_sldprt.STEP   entities=816  file=59726 chars
+  --- entity type histogram (fixed parser) ---
+    CARTESIAN_POINT                       151
+    DIRECTION                             133
+    ORIENTED_EDGE                         116
+    EDGE_CURVE                             58
+    AXIS2_PLACEMENT_3D                     53
+    VERTEX_POINT                           35
+    CIRCLE                                 27
+    VECTOR                                 27
+    LINE                                   27
+    FACE_OUTER_BOUND                       25
+    EDGE_LOOP                              25
+    ADVANCED_FACE                          25
+  --- surfaces of the 25 faces ---
+    CONICAL_SURFACE                        11
+    PLANE                                   8
+    CYLINDRICAL_SURFACE                     6
+  --- orphan counts (referenced by nothing) ---
+    CARTESIAN_POINT                total=151    orphan=0     
+    DIRECTION                      total=133    orphan=0     
+    AXIS2_PLACEMENT_3D             total=53     orphan=0     
+    VECTOR                         total=27     orphan=0     
+    LINE                           total=27     orphan=0     
+    CIRCLE                         total=27     orphan=0     
+    => CARTESIAN_POINT orphan 0 / 151 (0.0%)
+
+  --- bytes by entity type (top 8) ---
+    CARTESIAN_POINT                        16296   27.8%
+    DIRECTION                              13453   23.0%
+    ORIENTED_EDGE                           5768    9.8%
+    EDGE_CURVE                              3045    5.2%
+    AXIS2_PLACEMENT_3D                      2931    5.0%
+    EDGE_LOOP                               1506    2.6%
+    VECTOR                                  1454    2.5%
+    CIRCLE                                  1446    2.5%

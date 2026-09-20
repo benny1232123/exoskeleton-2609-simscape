@@ -1,0 +1,56 @@
+== exo_real.urdf 生成报告 (link frame = 世界系) ==
+hip axis point [mm] = 113.6974 0.2396 -52.9681
+hip axis dir         = -0.00212670 -0.99995673 -0.00905622  (norm=1.000000, 即 link frame 里的 z 分量 gamma=-0.009056)
+关节 origin rpy      = 0 0 0   (child link frame ≡ base/世界系)
+
+-- 刚体（世界系） --
+  motor_L  m= 0.355676 kg  cog=[108.3377 195.6374 -48.3544] mm  n_solid=9 
+  motor_R  m= 0.392793 kg  cog=[107.3357 -194.1382 -51.5897] mm  n_solid=452 
+  back     m= 1.955848 kg  cog=[-38.7700 1.9863 -5.8954] mm  n_solid=624 WARN:part 'User Library-CA-L01-1' pd=18702: 1 named volume vs 9 solid -> left for step 2;part 'Open CASCADE STEP translator 7.5 1.132.1.1' pd=18683: 1 named volume vs 17 solid -> left for step 2;part '00029265' pd=18716: 1 named volume vs 2 solid -> left for step 2;part '防水透气膜_10-5' pd=18797: 1 named volume vs 2 solid -> left for step 2;step2: 81 unnamed volume(s) -> 81 empty solid slot(s)
+  leg_L    m= 0.312589 kg  cog=[258.1357 162.2063 -162.8516] mm  n_solid=35 WARN:step2: 3 unnamed volume(s) -> 3 empty solid slot(s)
+  leg_R    m= 0.312589 kg  cog=[257.4458 -160.3330 -165.7811] mm  n_solid=35 WARN:step2: 3 unnamed volume(s) -> 3 empty solid slot(s)
+  base     m= 2.704317 kg  cog=[1.7991 -1.0308 -18.1166] mm  <= base 合并
+  整机总质量 = 3.329496 kg
+
+-- leg_L（link frame = 世界系，原点 = 髋轴上一点）--
+  CoM offset (世界系, 相对关节原点) = [0.144438335 0.161966688 -0.109883545] m
+  到髋轴垂距 d = 0.182102894 m
+  主轴惯量(世界轴向) = [0.000160579 0.007048460 0.007107561]  (三角不等式余量 1.015e-04)
+  绕髋轴有效惯量 I_axis = aᵀIa + m·d² = 0.016997395 kg·m²
+  质心高度 z_com(q) = C0 + W cos q + V sin q   (仿射项 C0 不影响力矩)
+        C0 = +0.001460511 m ,  W = -0.111344056 m ,  V = +0.144087631 m
+  重力矩 tau_g(q) = A sin q + B cos q
+        A = -0.341436830 ,  B = -0.441845083  [N·m]
+        |tau_g| = 0.558396084 N·m , 相位 = -127.6951 deg
+        静止位姿 tau_g(0) = B = -0.441845 N·m   <= 非 0！
+  闭式解 vs Rodrigues 采点最大偏差 = 8.327e-17 m  (应 ~1e-16)
+
+-- leg_R（link frame = 世界系，原点 = 髋轴上一点）--
+  CoM offset (世界系, 相对关节原点) = [0.143748365 -0.160572612 -0.112813061] m
+  到髋轴垂距 d = 0.182104871 m
+  主轴惯量(世界轴向) = [0.000160566 0.007048011 0.007107111]  (三角不等式余量 1.015e-04)
+  绕髋轴有效惯量 I_axis = aᵀIa + m·d² = 0.016997437 kg·m²
+  质心高度 z_com(q) = C0 + W cos q + V sin q   (仿射项 C0 不影响力矩)
+        C0 = -0.001460601 m ,  W = -0.111352460 m ,  V = +0.144083635 m
+  重力矩 tau_g(q) = A sin q + B cos q
+        A = -0.341462603 ,  B = -0.441832833  [N·m]
+        |tau_g| = 0.558402150 N·m , 相位 = -127.6980 deg
+        静止位姿 tau_g(0) = B = -0.441833 N·m   <= 非 0！
+  闭式解 vs Rodrigues 采点最大偏差 = 8.327e-17 m  (应 ~1e-16)
+
+-- 对账（vs mass_props_example_from_stp.csv 的 Izz_O 与 m·g·d）--
+  leg_L  I_axis 0.016997395 vs 0.016997395 (rel 2.13e-11) |  |tau_g| 0.558396084 vs 0.558418037 (rel 3.93e-05)  OK
+  leg_R  I_axis 0.016997437 vs 0.016997437 (rel 2.74e-12) |  |tau_g| 0.558402150 vs 0.558424083 (rel 3.93e-05)  OK
+
+URDF -> C:\Users\29408\Desktop\外骨骼\matlab2609\simscape\exo_real.urdf
+  关节 origin (世界系) = [0.113697402 0.000239573 -0.052968076] m   rpy = 0 0 0
+  关节 axis  (世界系) = [-0.002126698679 -0.999956730125 -0.009056215036]
+
+-- <visual> 网格 --
+  base   C:\Users\29408\Desktop\外骨骼\matlab2609\simscape\meshes\base.stl   35.68 MB  -> filename="meshes/base.stl"
+  leg_L  C:\Users\29408\Desktop\外骨骼\matlab2609\simscape\meshes\leg_L.stl    2.27 MB  -> filename="meshes/leg_L.stl"
+  leg_R  C:\Users\29408\Desktop\外骨骼\matlab2609\simscape\meshes\leg_R.stl    2.27 MB  -> filename="meshes/leg_R.stl"
+  提示：仅当 'meshes/<link>.stl' 存在时才会写 <visual>；
+        没有网格不影响动力学，只是 Mechanics Explorer 没有外形。
+
+VERDICT: PASS

@@ -1,0 +1,35 @@
+============================================================================================
+解析 4-DOF  vs  Simscape sm_exo_multidof
+============================================================================================
+Simscape CSV  : 4818 点, 8 列, t ∈ [0.0000, 2.5000]
+  CSV 列序      : abduct_L.q, abduct_L.w, abduct_R.q, abduct_R.w, hip_L.q, hip_L.w, hip_R.q, hip_R.w
+MultiBody     : nq=4  顺序 = ['hip_L', 'abduct_L', 'hip_R', 'abduct_R']
+总质量        : 3.329495573 kg
+  列映射        : hip_L<-col5, abduct_L<-col1, hip_R<-col7, abduct_R<-col3
+
+-- 解析侧 RK4 积分（dt = 1.0e-04, 25000 步 = 2.50 s）--
+  解析末态 q     = [-0.328063  0.364994 -0.319847 -0.379963]
+  Simscape 末态 q = [-0.328056  0.364994 -0.31984  -0.379963]
+
+-- 逐通道误差（相对量程）--
+  channel             max|err|      rms(err)    range(sim)    rms/range
+  hip_L             7.3979e-06    3.1722e-06      1.837647   1.7263e-06
+  abduct_L          1.8830e-06    7.2047e-07      0.407366   1.7686e-06
+  hip_R             7.4159e-06    3.1829e-06      1.843121   1.7269e-06
+  abduct_R          1.7704e-06    7.0300e-07      0.427723   1.6436e-06
+  d_hip_L           4.3669e-05    1.7745e-05     10.072603   1.7617e-06
+  d_abduct_L        1.5889e-05    4.9887e-06      2.571416   1.9401e-06
+  d_hip_R           4.3887e-05    1.7806e-05     10.104952   1.7621e-06
+  d_abduct_R        1.5428e-05    4.8116e-06      2.677101   1.7973e-06
+
+-- 摆幅（判断自由度是否真的被激励）--
+  hip_L        sim   1.837647 rad   analytic   1.837647 rad
+  abduct_L     sim   0.407366 rad   analytic   0.407366 rad  <- 若≈0 则退化成 2-DOF，对照没意义
+  hip_R        sim   1.843121 rad   analytic   1.843121 rad
+  abduct_R     sim   0.427723 rad   analytic   0.427723 rad  <- 若≈0 则退化成 2-DOF，对照没意义
+
+worst channel: d_abduct_L   rms/range = 1.9401e-06
+verdict: OK   (threshold 1e-2，沿用 2-DOF 那条链)
+
+COMPARE_MULTIDOF_OK
+figure: C:\Users\29408\Desktop\外骨骼\matlab2609\out_simscape\compare_multidof.png

@@ -1,0 +1,3 @@
+exo_real_drive.mp4       frames= 101 fps= 25.0 1350x930 frame0_mean=232.32 mid_mean=229.75 mid_std= 42.14
+exo_real_drop.mp4        frames=  64 fps= 25.0 1350x930 frame0_mean=232.29 mid_mean=232.09 mid_std= 37.34
+exo_real_gait.mp4        frames= 151 fps= 25.0 1350x930 frame0_mean=232.46 mid_mean=229.54 mid_std= 42.44
