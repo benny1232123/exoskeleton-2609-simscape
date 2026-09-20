@@ -67,9 +67,6 @@
 |---|---|---|
 | ![平地关键帧](docs/assets/cond_level_strip.png) | ![上坡关键帧](docs/assets/cond_incline_strip.png) | ![上楼梯关键帧](docs/assets/cond_stair_strip.png) |
 
-> 口径：地形**不进入模型**（无接触 / 足底反力），上坡与上楼的差别只体现在**髋关节参考轨迹**
-> （屈髋更大、更偏屈曲、步频更低）；参考轨迹是 2 阶谐波 Fourier 拟合的 surrogate，非实测。
-
 ---
 
 ## 质量属性
