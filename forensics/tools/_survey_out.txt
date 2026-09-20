@@ -1,0 +1,9 @@
+﻿upload set: 352 files, 5.00 MB
+--- by top dir ---
+  (root)                126 files      3.10 MB
+  dynamics_model         39 files      0.20 MB
+  exo2609                15 files      0.08 MB
+  matlab2609            172 files      1.62 MB
+--- skipped (>900000 B) ---
+  _props_instances.json                                          1131273
+LIST -> C:\Users\29408\Desktop\外骨骼\_upload_list.txt

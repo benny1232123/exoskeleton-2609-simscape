@@ -1,0 +1,32 @@
+docs = 21
+
+=== 腿部_腿杆_片状V5 ===
+   SaveAs4 -> True  err=0 warn=0
+   路径 C:\Users\29408\Desktop\外骨骼\装配体\腿部_腿杆_片状V5.SLDPRT   PASS 未改变
+   产出 OK: 腿部_腿杆_片状V5_Default_sldprt.STEP  (903702 bytes)
+
+=== 腿部_轴盖 ===
+   SaveAs4 -> True  err=0 warn=0
+   路径 C:\Users\29408\Desktop\外骨骼\装配体\腿部_轴盖.SLDPRT   PASS 未改变
+   产出 OK: 腿部_轴盖_Default_sldprt.STEP  (194679 bytes)
+
+== D:\exo_xml *.STEP 现状 ==
+   电机_出轴_默认b_sldprt.STEP                                            678429
+   电机_片形腿杆连接件_默认_sldprt.STEP                                        556189
+   电机_轴_默认8e-14_sldprt.STEP                                         60611
+   电机_黄铜轴套8_10_18_默认_sldprt.STEP                                    32042
+   腿部_埋头螺丝_M3_6_默认_sldprt.STEP                                      19298
+   腿部_埋头螺丝_M3_8_默认_sldprt.STEP                                      19293
+   腿部_平头螺丝_M3_8_默认_sldprt.STEP                                      17766
+   腿部_按键_双_默认g_sldprt.STEP                                          131119
+   腿部_法兰注塑螺母_M3_6.3_4.6_5.5_默认_sldprt.STEP                          23140
+   腿部_滑块_双键_默认_sldprt.STEP                                          780153
+   腿部_滑轨_片形_默认(ń�b01)�ۆ�Zp�jh��b�b_sldprt.STEP                      742257
+   腿部_滑轨挡片_默认e_sldprt.STEP                                          31505
+   腿部_绑缚_默认��e_sldprt.STEP                                          1545441
+   腿部_腿杆_片状V5_Default_sldprt.STEP                                   903702
+   腿部_螺丝_M3_4_默认_sldprt.STEP                                        17729
+   腿部_轴盖_Default_sldprt.STEP                                        194679
+   腿部_顶丝_M4_4_默认_sldprt.STEP                                        19341
+   腿部设计_左-5_默认_sldprt.STEP                                          752436
+   腿部设计_左-6_默认_sldprt.STEP                                          752438

@@ -1,0 +1,205 @@
+docs = 20
+
+########## DIRTY ##########
+
+--- 腿部_绑缚   (腿部_绑缚.SLDPRT)
+    cfg props (0): 
+    cfg.Name                     = |默认|
+    cfg.AlternateName            = ||
+    cfg.Comment                  = ||
+    cfg.Description              = |默认|
+    cfg.IsDerived                = False
+    cfg.IsDefeatured             ERR AttributeError('<unknown>.IsDefeatured')
+    cfg.ParentConfigurationName  ERR AttributeError('<unknown>.ParentConfigurationName')
+    cfg.BOMPartNumberSource      ERR AttributeError('<unknown>.BOMPartNumberSource')
+    cfg.ConfigurationType        ERR AttributeError('<unknown>.ConfigurationType')
+    cfg.HideInBOM                ERR AttributeError('<unknown>.HideInBOM')
+    cfg.ShowChildComponentsInBOM = False
+    cfg.CustomProperties         ERR AttributeError('<unknown>.CustomProperties')
+    cfg.RepresentationParent     ERR AttributeError('<unknown>.RepresentationParent')
+
+--- 腿部_轴盖   (腿部_轴盖.SLDPRT)
+    cfg props (0): 
+    cfg.Name                     = |默认|
+    cfg.AlternateName            = ||
+    cfg.Comment                  = ||
+    cfg.Description              = |默认|
+    cfg.IsDerived                = False
+    cfg.IsDefeatured             ERR AttributeError('<unknown>.IsDefeatured')
+    cfg.ParentConfigurationName  ERR AttributeError('<unknown>.ParentConfigurationName')
+    cfg.BOMPartNumberSource      ERR AttributeError('<unknown>.BOMPartNumberSource')
+    cfg.ConfigurationType        ERR AttributeError('<unknown>.ConfigurationType')
+    cfg.HideInBOM                ERR AttributeError('<unknown>.HideInBOM')
+    cfg.ShowChildComponentsInBOM = False
+    cfg.CustomProperties         ERR AttributeError('<unknown>.CustomProperties')
+    cfg.RepresentationParent     ERR AttributeError('<unknown>.RepresentationParent')
+
+--- 腿部_按键_双   (腿部_按键_双.SLDPRT)
+    cfg props (0): 
+    cfg.Name                     = |默认|
+    cfg.AlternateName            = ||
+    cfg.Comment                  = ||
+    cfg.Description              = |默认|
+    cfg.IsDerived                = False
+    cfg.IsDefeatured             ERR AttributeError('<unknown>.IsDefeatured')
+    cfg.ParentConfigurationName  ERR AttributeError('<unknown>.ParentConfigurationName')
+    cfg.BOMPartNumberSource      ERR AttributeError('<unknown>.BOMPartNumberSource')
+    cfg.ConfigurationType        ERR AttributeError('<unknown>.ConfigurationType')
+    cfg.HideInBOM                ERR AttributeError('<unknown>.HideInBOM')
+    cfg.ShowChildComponentsInBOM = False
+    cfg.CustomProperties         ERR AttributeError('<unknown>.CustomProperties')
+    cfg.RepresentationParent     ERR AttributeError('<unknown>.RepresentationParent')
+
+--- 腿部_滑轨_片形   (腿部_滑轨_片形.SLDPRT)
+    cfg props (0): 
+    cfg.Name                     = |默认|
+    cfg.AlternateName            = ||
+    cfg.Comment                  = ||
+    cfg.Description              = |默认|
+    cfg.IsDerived                = False
+    cfg.IsDefeatured             ERR AttributeError('<unknown>.IsDefeatured')
+    cfg.ParentConfigurationName  ERR AttributeError('<unknown>.ParentConfigurationName')
+    cfg.BOMPartNumberSource      ERR AttributeError('<unknown>.BOMPartNumberSource')
+    cfg.ConfigurationType        ERR AttributeError('<unknown>.ConfigurationType')
+    cfg.HideInBOM                ERR AttributeError('<unknown>.HideInBOM')
+    cfg.ShowChildComponentsInBOM = False
+    cfg.CustomProperties         ERR AttributeError('<unknown>.CustomProperties')
+    cfg.RepresentationParent     ERR AttributeError('<unknown>.RepresentationParent')
+
+--- 腿部_腿杆_片状V5   (腿部_腿杆_片状V5.SLDPRT)
+    cfg props (0): 
+    cfg.Name                     = |默认|
+    cfg.AlternateName            = ||
+    cfg.Comment                  = ||
+    cfg.Description              = |默认|
+    cfg.IsDerived                = False
+    cfg.IsDefeatured             ERR AttributeError('<unknown>.IsDefeatured')
+    cfg.ParentConfigurationName  ERR AttributeError('<unknown>.ParentConfigurationName')
+    cfg.BOMPartNumberSource      ERR AttributeError('<unknown>.BOMPartNumberSource')
+    cfg.ConfigurationType        ERR AttributeError('<unknown>.ConfigurationType')
+    cfg.HideInBOM                ERR AttributeError('<unknown>.HideInBOM')
+    cfg.ShowChildComponentsInBOM = False
+    cfg.CustomProperties         ERR AttributeError('<unknown>.CustomProperties')
+    cfg.RepresentationParent     ERR AttributeError('<unknown>.RepresentationParent')
+
+--- 腿部_滑轨挡片   (腿部_滑轨挡片.SLDPRT)
+    cfg props (0): 
+    cfg.Name                     = |默认|
+    cfg.AlternateName            = ||
+    cfg.Comment                  = ||
+    cfg.Description              = |默认|
+    cfg.IsDerived                = False
+    cfg.IsDefeatured             ERR AttributeError('<unknown>.IsDefeatured')
+    cfg.ParentConfigurationName  ERR AttributeError('<unknown>.ParentConfigurationName')
+    cfg.BOMPartNumberSource      ERR AttributeError('<unknown>.BOMPartNumberSource')
+    cfg.ConfigurationType        ERR AttributeError('<unknown>.ConfigurationType')
+    cfg.HideInBOM                ERR AttributeError('<unknown>.HideInBOM')
+    cfg.ShowChildComponentsInBOM = False
+    cfg.CustomProperties         ERR AttributeError('<unknown>.CustomProperties')
+    cfg.RepresentationParent     ERR AttributeError('<unknown>.RepresentationParent')
+
+--- 电机_出轴   (电机_出轴.SLDPRT)
+    cfg props (0): 
+    cfg.Name                     = |默认|
+    cfg.AlternateName            = ||
+    cfg.Comment                  = ||
+    cfg.Description              = |默认|
+    cfg.IsDerived                = False
+    cfg.IsDefeatured             ERR AttributeError('<unknown>.IsDefeatured')
+    cfg.ParentConfigurationName  ERR AttributeError('<unknown>.ParentConfigurationName')
+    cfg.BOMPartNumberSource      ERR AttributeError('<unknown>.BOMPartNumberSource')
+    cfg.ConfigurationType        ERR AttributeError('<unknown>.ConfigurationType')
+    cfg.HideInBOM                ERR AttributeError('<unknown>.HideInBOM')
+    cfg.ShowChildComponentsInBOM = False
+    cfg.CustomProperties         ERR AttributeError('<unknown>.CustomProperties')
+    cfg.RepresentationParent     ERR AttributeError('<unknown>.RepresentationParent')
+
+--- 电机_轴   (电机_轴.SLDPRT)
+    cfg props (0): 
+    cfg.Name                     = |默认|
+    cfg.AlternateName            = ||
+    cfg.Comment                  = ||
+    cfg.Description              = |默认|
+    cfg.IsDerived                = False
+    cfg.IsDefeatured             ERR AttributeError('<unknown>.IsDefeatured')
+    cfg.ParentConfigurationName  ERR AttributeError('<unknown>.ParentConfigurationName')
+    cfg.BOMPartNumberSource      ERR AttributeError('<unknown>.BOMPartNumberSource')
+    cfg.ConfigurationType        ERR AttributeError('<unknown>.ConfigurationType')
+    cfg.HideInBOM                ERR AttributeError('<unknown>.HideInBOM')
+    cfg.ShowChildComponentsInBOM = False
+    cfg.CustomProperties         ERR AttributeError('<unknown>.CustomProperties')
+    cfg.RepresentationParent     ERR AttributeError('<unknown>.RepresentationParent')
+
+########## CLEAN ##########
+
+--- 腿部_滑块_双键   (腿部_滑块_双键.SLDPRT)
+    cfg props (0): 
+    cfg.Name                     = |默认|
+    cfg.AlternateName            = ||
+    cfg.Comment                  = ||
+    cfg.Description              = |默认|
+    cfg.IsDerived                = False
+    cfg.IsDefeatured             ERR AttributeError('<unknown>.IsDefeatured')
+    cfg.ParentConfigurationName  ERR AttributeError('<unknown>.ParentConfigurationName')
+    cfg.BOMPartNumberSource      ERR AttributeError('<unknown>.BOMPartNumberSource')
+    cfg.ConfigurationType        ERR AttributeError('<unknown>.ConfigurationType')
+    cfg.HideInBOM                ERR AttributeError('<unknown>.HideInBOM')
+    cfg.ShowChildComponentsInBOM = False
+    cfg.CustomProperties         ERR AttributeError('<unknown>.CustomProperties')
+    cfg.RepresentationParent     ERR AttributeError('<unknown>.RepresentationParent')
+
+--- 腿部_螺丝_M3_4   (腿部_螺丝_M3_4.SLDPRT)
+    cfg props (0): 
+    cfg.Name                     = |默认|
+    cfg.AlternateName            = ||
+    cfg.Comment                  = ||
+    cfg.Description              = |默认|
+    cfg.IsDerived                = False
+    cfg.IsDefeatured             ERR AttributeError('<unknown>.IsDefeatured')
+    cfg.ParentConfigurationName  ERR AttributeError('<unknown>.ParentConfigurationName')
+    cfg.BOMPartNumberSource      ERR AttributeError('<unknown>.BOMPartNumberSource')
+    cfg.ConfigurationType        ERR AttributeError('<unknown>.ConfigurationType')
+    cfg.HideInBOM                ERR AttributeError('<unknown>.HideInBOM')
+    cfg.ShowChildComponentsInBOM = False
+    cfg.CustomProperties         ERR AttributeError('<unknown>.CustomProperties')
+    cfg.RepresentationParent     ERR AttributeError('<unknown>.RepresentationParent')
+
+--- 电机_黄铜轴套8_10_18   (电机_黄铜轴套8_10_18.SLDPRT)
+    cfg props (0): 
+    cfg.Name                     = |默认|
+    cfg.AlternateName            = ||
+    cfg.Comment                  = ||
+    cfg.Description              = |默认|
+    cfg.IsDerived                = False
+    cfg.IsDefeatured             ERR AttributeError('<unknown>.IsDefeatured')
+    cfg.ParentConfigurationName  ERR AttributeError('<unknown>.ParentConfigurationName')
+    cfg.BOMPartNumberSource      ERR AttributeError('<unknown>.BOMPartNumberSource')
+    cfg.ConfigurationType        ERR AttributeError('<unknown>.ConfigurationType')
+    cfg.HideInBOM                ERR AttributeError('<unknown>.HideInBOM')
+    cfg.ShowChildComponentsInBOM = False
+    cfg.CustomProperties         ERR AttributeError('<unknown>.CustomProperties')
+    cfg.RepresentationParent     ERR AttributeError('<unknown>.RepresentationParent')
+
+--- 腿部_顶丝_M4_4   (腿部_顶丝_M4_4.SLDPRT)
+    cfg props (0): 
+    cfg.Name                     = |默认|
+    cfg.AlternateName            = ||
+    cfg.Comment                  = ||
+    cfg.Description              = |默认|
+    cfg.IsDerived                = False
+    cfg.IsDefeatured             ERR AttributeError('<unknown>.IsDefeatured')
+    cfg.ParentConfigurationName  ERR AttributeError('<unknown>.ParentConfigurationName')
+    cfg.BOMPartNumberSource      ERR AttributeError('<unknown>.BOMPartNumberSource')
+    cfg.ConfigurationType        ERR AttributeError('<unknown>.ConfigurationType')
+    cfg.HideInBOM                ERR AttributeError('<unknown>.HideInBOM')
+    cfg.ShowChildComponentsInBOM = False
+    cfg.CustomProperties         ERR AttributeError('<unknown>.CustomProperties')
+    cfg.RepresentationParent     ERR AttributeError('<unknown>.RepresentationParent')
+
+########## 配置自定义属性 ##########
+--- 腿部_绑缚  props=0
+--- 腿部_轴盖  props=0
+--- 腿部_滑块_双键  props=0
+--- 腿部_按键_双  props=0
+--- 腿部_滑轨_片形  props=0
+--- 腿部_腿杆_片状V5  props=0

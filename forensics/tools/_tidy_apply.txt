@@ -1,0 +1,8 @@
+﻿EXIT=0
+PLAN -> C:\Users\29408\Desktop\外骨骼\_tidy_plan_tmp.txt
+待归档 60 个 / 0.31 MB ；保留 127 个 ；目录 12 个
+预检：文档未引用任何待删文件。
+归档: C:\Users\29408\Desktop\外骨骼\_archive\_archive_root_2026-09-20.zip
+  条目 60 / 期望 60 ；缺 0 ；zip 完好 True
+删除: 成功 60 ；失败 0
+VERDICT: TIDY_OK

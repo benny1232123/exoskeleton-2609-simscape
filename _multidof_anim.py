@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-_multidof_anim.py —— 把 `sm_exo_multidof` 的 4-DOF 运动渲染成 3D 动画
+_multidof_anim.py —— 把 4-DOF 轨迹 CSV 渲染成离线 3D 动画（**可复用于任意工况**）
 ============================================================================
 
 为什么要这个
@@ -9,10 +9,18 @@ Mechanics Explorer 只能在 MATLAB GUI 里看，截不了、也分享不了。
 本脚本用**完全相同的网格 + 相同的前向运动学**离线渲染，
 让 3D 效果进得了文档、也进得了对话。
 
-★ 轨迹来源 = **Simscape 自己导出的** `out_simscape/multidof_traj.csv`
-  （由 `dump_multidof_traj.m` 生成，4763 点、t∈[0,2.5]、限位已关、g=[0 0 -9.81]）。
-  所以这动画**不是"另一个模型的动画"**，就是 Simscape 那条轨迹的可视化 ——
-  与 Mechanics Explorer 里看到的逐位相同。
+★ 轨迹来源 = Simscape 自己导出的 `out_simscape/multidof_traj.csv`
+  （由 `dump_multidof_traj.m` 生成，限位已关、g=[0 0 -9.81]）。
+  所以默认动画**不是"另一个模型的动画"**，就是 Simscape 那条轨迹的可视化。
+
+命令行
+------
+    python _multidof_anim.py                                # 默认：被动自由落体
+    python _multidof_anim.py <csv> <out.gif> <out_strip.png> "<标题首行>" "<落款>"
+
+作为模块（`_multidof_conditions.py` 就靠这个跑多工况）
+    from _multidof_anim import render_csv
+    t, qq = render_csv(csv, gif, strip, head="…工况…", footer="…")
 
 输出
 ----
@@ -40,25 +48,44 @@ URDF = os.path.join(SIM, "exo_multidof.urdf")
 OUT_GIF = os.path.join(OUTD, "multidof_drop.gif")
 OUT_STRIP = os.path.join(OUTD, "multidof_drop_strip.png")
 
+HEAD0 = "sm_exo_multidof  4-DOF 自由落体   t = %.2f s"
+FOOT0 = "绿 = abduct 轴（新自由度）   轨迹源：Simscape multidof_traj.csv"
+
 QS = ["hip_L", "abduct_L", "hip_R", "abduct_R"]   # URDF 里的 4 个 revolute
 NFRAME = 60
 TARGETF = 700          # 每段减面目标（动画要逐帧重画，比静态图更省）
 
+_ASSETS = {}
 
-def load_traj():
-    with io.open(CSV, encoding="utf-8") as f:
+
+def load_assets(target_faces=TARGETF):
+    """解析 URDF + 读网格（进程内缓存；多工况连续渲染只读一次）。"""
+    if "a" not in _ASSETS:
+        links, joints, inert, has_vis = parse_urdf(URDF)
+        print("-- 减面（实体着色渲染）--")
+        SOLID, skipped = load_solid_meshes(links, has_vis, target_faces=target_faces)
+        drawn = [nm for nm in links if nm in SOLID]
+        _ASSETS["a"] = (SOLID, joints, drawn)
+    return _ASSETS["a"]
+
+
+def load_traj(csv=None, qs=QS):
+    csv = csv or CSV
+    with io.open(csv, encoding="utf-8") as f:
         hdr = f.readline().strip().split(",")
-    d = np.loadtxt(CSV, delimiter=",", skiprows=1)
+    d = np.loadtxt(csv, delimiter=",", skiprows=1)
     col = {h: i for i, h in enumerate(hdr)}
-    for q in QS:
+    for q in qs:
         if q + ".q" not in col:
-            raise SystemExit("CSV 里找不到 %s.q —— 先把 dump_multidof_traj.m 跑一遍" % q)
+            raise SystemExit("CSV 里找不到 %s.q —— 先确认轨迹导出脚本" % q)
     t = d[:, 0]
-    qq = np.column_stack([d[:, col[q + ".q"]] for q in QS])
+    qq = np.column_stack([d[:, col[q + ".q"]] for q in qs])
     return t, qq
 
 
-def main():
+def render_csv(csv, out_gif, out_strip, head, footer,
+               nframe=NFRAME, qs=QS, strip_title=None):
+    """把 csv 的 q(t) 渲染成 GIF + 6 格胶片。head 里可含 % 占位（t 与各 q）。"""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -70,16 +97,12 @@ def main():
 
     from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
-    links, joints, inert, has_vis = parse_urdf(URDF)
-    print("-- 减面（实体着色渲染）--")
-    SOLID, skipped = load_solid_meshes(links, has_vis, target_faces=TARGETF)
-    drawn = [nm for nm in links if nm in SOLID]
-
-    t, qq = load_traj()
-    tt = np.linspace(t[0], t[-1], NFRAME)
+    SOLID, joints, drawn = load_assets()
+    t, qq = load_traj(csv, qs)
+    tt = np.linspace(t[0], t[-1], nframe)
 
     def qmap_at(tk):
-        return {QS[i]: float(np.interp(tk, t, qq[:, i])) for i in range(len(QS))}
+        return {qs[i]: float(np.interp(tk, t, qq[:, i])) for i in range(len(qs))}
 
     def cloud(M, nm):
         """段 nm 在配置 M 下的世界顶点 (nV,3)。"""
@@ -109,7 +132,6 @@ def main():
             hi = np.maximum(hi, P.max(axis=0))
     mid = (lo + hi) / 2.0
     rad = max((hi - lo).max() / 2.0, 0.1) * 1.06
-    print("视野: center = %s  half-size = %.4f m" % (np.round(mid, 4), rad))
 
     def setup_ax(ax):
         ax.set_xlim(mid[0] - rad, mid[0] + rad)
@@ -153,41 +175,55 @@ def main():
         setup_ax(ax)
         qm = qmap_at(tk)
         paint(ax, tk)
-        ax.set_title("sm_exo_multidof  4-DOF 自由落体   t = %.2f s\n"
-                     "hip_L %+.2f  abduct_L %+.2f  hip_R %+.2f  abduct_R %+.2f  [rad]"
-                     % (tk, qm["hip_L"], qm["abduct_L"], qm["hip_R"], qm["abduct_R"]),
-                     fontsize=10.5)
-        ax.text2D(0.02, 0.02, "绿 = abduct 轴（新自由度）   "
-                              "轨迹源：Simscape multidof_traj.csv",
-                  transform=ax.transAxes, fontsize=8, color="#444")
+        ax.set_title(head % ((tk,) + tuple(qm[q] for q in qs)), fontsize=10.5)
+        if footer:
+            ax.text2D(0.02, 0.02, footer, transform=ax.transAxes,
+                      fontsize=8, color="#444")
         fig.tight_layout()
         fig.canvas.draw()
         frames.append(Image.fromarray(np.asarray(fig.canvas.buffer_rgba())).convert("RGB"))
         if (k + 1) % 10 == 0:
-            print("  frame %d/%d" % (k + 1, NFRAME))
+            print("  frame %d/%d" % (k + 1, nframe))
 
-    frames[0].save(OUT_GIF, save_all=True, append_images=frames[1:],
+    frames[0].save(out_gif, save_all=True, append_images=frames[1:],
                    duration=60, loop=0, optimize=True)
-    print("WROTE", OUT_GIF)
+    print("WROTE", out_gif)
 
     # ============================================================ 胶片
-    picks = np.linspace(0, NFRAME - 1, 6).round().astype(int)
+    picks = np.linspace(0, nframe - 1, 6).round().astype(int)
     fig2 = plt.figure(figsize=(17, 10))
     for i, k in enumerate(picks):
         a = fig2.add_subplot(2, 3, i + 1, projection="3d")
         setup_ax(a)
         paint(a, tt[k], "(t = %.2f s)" % tt[k])
-    fig2.suptitle("sm_exo_multidof —— 4-DOF 自由落体（T=0，重力自然摆动）"
-                  "   轨迹来自 Simscape 导出的 multidof_traj.csv；L3 滑块 <visual> 已隐藏",
+    fig2.suptitle(strip_title or head % ((tt[0],) + tuple(qmap_at(tt[0])[q] for q in qs)),
                   fontsize=12.5, y=0.97)
     fig2.tight_layout(rect=[0, 0, 1, 0.94])
-    fig2.savefig(OUT_STRIP, dpi=120)
-    print("WROTE", OUT_STRIP)
+    fig2.savefig(out_strip, dpi=120)
+    print("WROTE", out_strip)
+    plt.close("all")
+    return t, qq
+
+
+def main():
+    argv = sys.argv[1:]
+    csv, gif, strip = CSV, OUT_GIF, OUT_STRIP
+    head, foot, stitle = HEAD0, FOOT0, None
+    if len(argv) >= 3:
+        csv, gif, strip = argv[0], argv[1], argv[2]
+    if len(argv) >= 4:
+        head = argv[3]
+    if len(argv) >= 5:
+        foot = argv[4]
+    if len(argv) >= 6:
+        stitle = argv[5]
+
+    t, qq = render_csv(csv, gif, strip, head, foot, strip_title=stitle)
 
     # ---- 摆幅自检：确认 abduct 真被激励（否则动画看不出区别）----
     print("")
     print("=" * 74)
-    print("摆幅自检（Simscape 轨迹；abduct 若≈0 则动画会退化成 2-DOF）")
+    print("摆幅自检（abduct 若≈0 则动画会退化）")
     print("=" * 74)
     for i, qn in enumerate(QS):
         r = qq[:, i].max() - qq[:, i].min()

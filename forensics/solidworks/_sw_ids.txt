@@ -1,0 +1,31 @@
+=== GetIDsOfNames reachability (part doc) ===
+  OK    MaterialIdName               -> dispid 2
+  OK    MaterialUserName             -> dispid 1
+  OK    SetMaterialPropertyName      -> dispid 139
+  OK    SetMaterialPropertyName2     -> dispid 142
+  OK    GetMaterialPropertyName      -> dispid 138
+  OK    GetMaterialPropertyName2     -> dispid 141
+  MISS  RemoveMaterialProperty       -> (-2147352570, '未知名称。', None, None)
+  OK    Extension                    -> dispid 66306
+  OK    GetMassProperties            -> dispid 65786
+  OK    GetMassProperties2           -> dispid 66194
+  OK    IGetMassProperties2          -> dispid 66195
+  MISS  CreateMassProperty           -> (-2147352570, '未知名称。', None, None)
+  MISS  CreateMassProperty2          -> (-2147352570, '未知名称。', None, None)
+  MISS  GetMassProperty              -> (-2147352570, '未知名称。', None, None)
+  MISS  UpdateMassProperties         -> (-2147352570, '未知名称。', None, None)
+  MISS  GetBomMassProperties         -> (-2147352570, '未知名称。', None, None)
+  MISS  Density                      -> (-2147352570, '未知名称。', None, None)
+  MISS  GetDensity                   -> (-2147352570, '未知名称。', None, None)
+  OK    GetTitle                     -> dispid 65607
+  OK    GetPathName                  -> dispid 65608
+  OK    GetType                      -> dispid 65609
+  OK    GetConfigurationByName       -> dispid 66048
+  OK    GetActiveConfiguration       -> dispid 65841
+
+=== same on SldWorks app ===
+  OK    GetDocuments                 -> dispid 273
+  OK    RevisionNumber               -> dispid 12
+  OK    ActiveDoc                    -> dispid 1
+  OK    IActiveDoc2                  -> dispid 156
+  OK    GetUserPreferenceIntegerValue -> dispid 50

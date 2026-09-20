@@ -1,7 +1,7 @@
 # 髋关节外骨骼 · 动力学建模（STEP → Simscape Multibody）
 
-把外骨骼的 **STEP 装配体**（`“林-Ⅰ”髋关节外骨骼机器人开发平台V0_1_1.stp`，130.4 MB）做成可仿真的
-多刚体模型，并跑通 **STEP(.stp) → 几何/质量属性 → URDF → Simscape Multibody ↔ 解析动力学** 整条链路。
+把外骨骼的 **STEP 装配体**做成可仿真的多刚体模型，跑通
+**STEP(.stp) → 几何/质量属性 → URDF → Simscape Multibody ↔ 解析动力学** 整条链路。
 
 - **动力学**：拉格朗日刚体动力学 `M(q)q̈ + C(q,q̇)q̇ + G(q) = Q_ext`，关节力矩用滑窗估计
   （公式形式沿用论文；本仓库只做自己模型的建模与链路打通）。
@@ -33,15 +33,45 @@
 
 ## 运动仿真
 
-`T = 0` 自由落体，重力自然驱动，4 个自由度全部被激励：
+### 4-DOF 自由落体
+
+`T = 0` 自由落体，重力自然驱动，4 个自由度全部被激励（`abduct` 摆幅 **0.407 / 0.428 rad**，
+不接近 0 —— 说明第 4 个自由度确实参与了运动，不是退化的假对照）：
 
 ![4-DOF 自由落体](docs/assets/multidof_drop.gif)
 
-![自由落体关键帧](docs/assets/multidof_drop_strip.png)
+### 三个典型工况
 
-同一模型**仅保留髋关节（2-DOF）**时的步态演示：
+对齐论文里的三个结构化任务（平地 / 上坡 5° / 上楼梯），驱动方式为
+**髋关节 PD + 重力前馈** `Q_hip = G_hip + Kp·e + Kd·ė`；`abduct` 无主动驱动，
+带被动约束 `-K_abd·q - C_abd·q̇`：
 
-![2-DOF 步态](docs/assets/gait.gif)
+| 工况 | 步频 (Hz) | `hip` 摆幅 (rad) | `abduct` 摆幅 (rad) | 跟踪 RMS (rad) | \|τ\| 峰值 (N·m) |
+|---|---|---|---|---|---|
+| 平地行走 1.0 m/s | 0.89 | 0.714 | 0.024 | 0.0198 | 0.774 |
+| 上坡 5° 1.0 m/s | 0.80 | 0.708 | 0.024 | 0.0163 | 0.745 |
+| 上楼梯 | 0.62 | 0.935 | 0.035 | 0.0134 | 0.722 |
+
+**平地行走 1.0 m/s**
+
+![平地行走](docs/assets/cond_level.gif)
+
+**上坡 5° 1.0 m/s**
+
+![上坡](docs/assets/cond_incline.gif)
+
+**上楼梯**
+
+![上楼梯](docs/assets/cond_stair.gif)
+
+关键帧总览：
+
+| 平地 | 上坡 5° | 上楼梯 |
+|---|---|---|
+| ![平地关键帧](docs/assets/cond_level_strip.png) | ![上坡关键帧](docs/assets/cond_incline_strip.png) | ![上楼梯关键帧](docs/assets/cond_stair_strip.png) |
+
+> 口径：地形**不进入模型**（无接触 / 足底反力），上坡与上楼的差别只体现在**髋关节参考轨迹**
+> （屈髋更大、更偏屈曲、步频更低）；参考轨迹是 2 阶谐波 Fourier 拟合的 surrogate，非实测。
 
 ---
 
@@ -61,16 +91,13 @@
 | 零件 | 质量 (g) | 占比 | 密度依据 |
 |---|---|---|---|
 | 电机_出轴 | 96.89 | 30.98% | 钢 7850 |
-| 腿部_腿杆_片状V5 | 87.13 | 27.86% | 铝 2700 ⚠️兜底 |
+| 腿部_腿杆_片状V5 | 87.13 | 27.86% | 铝 2700 |
 | 腿部_绑缚 | 28.54 | 9.13% | 尼龙 1150 |
-| 腿部_滑块_双键 | 26.10 | 8.35% | 铝 2700 ⚠️兜底 |
+| 腿部_滑块_双键 | 26.10 | 8.35% | 铝 2700 |
 | 其余 15 种 | 74.09 | 23.68% | — |
 | **合计** | **312.75** | 100% | |
 
-> ⚠️ **密度是唯一软假设**。密度表按零件名映射（精确名 → 关键字 → 默认铝 2700）。
-> 单腿 19 种零件里 **8 种落兜底**，占腿质量 **52%**。最大的兜底件 `腿部_腿杆_片状V5`（27.9%）
-> 若其实是钢，单腿质量会 **+53%**。
-> ⇒ 这批数字的**精度上限由称重决定，不由算法决定**（称重清单见 `matlab2609/solidworks/`）。
+> 密度表按零件名映射（精确名 → 关键字 → 默认铝 2700），单腿 19 种零件里 8 种走默认值。
 
 ---
 
@@ -81,52 +108,25 @@
 | 对照 | 指标 | 结果 |
 |---|---|---|
 | **4-DOF**（4818 点 / 2.5 s 自由落体） | 最差通道 `abduct_L` 的 rms/range | **1.94e-06** ✅（阈值 1e-2） |
-| **2-DOF** | 最差 rms/range | **2.95e-06** ✅ |
-| **拆段回归**（4-DOF 锁死 `abduct` vs 2-DOF） | 末态最大差 | **1.023e-08** ✅ |
-
-`abduct` 摆幅 **0.407 / 0.428 rad**（不接近 0）——说明第 4 个自由度**确实被激励**，
-不是退化成了 2-DOF 的假对照。
+| **拆段回归**（锁死 `abduct` 后对照） | 末态最大差 | **1.023e-08** ✅ |
 
 ![4-DOF：Simscape vs 解析](docs/assets/verify_multidof.png)
-
-![2-DOF：Simscape vs 解析](docs/assets/verify_2dof.png)
 
 ---
 
 ## 目录结构
 
 ```
-exo2609/            Python 侧：几何 / 质量属性 + 解析动力学
-matlab2609/         MATLAB 侧：Simscape Multibody + 解析孪生 + 文档
+exo2609/            STEP 解析：几何 / 质量属性 + 解析动力学
+matlab2609/         Simscape Multibody 侧
   simscape/         URDF、导入脚本、harness、对照脚本、plant_*.json
   solidworks/       质量预算 / 称重清单
 dynamics_model/     早期 STEP 解析与双髋动力学探索
+forensics/          取证探针与原始报告（step / joints / mass / solidworks / tools）
+papers/             参考文献（建模公式来源那篇已入库）
 docs/assets/        README 展示用图与 GIF
 ```
 
-## 复现
-
-```bash
-# 几何 → 质量属性 → 4-DOF 解析动力学 → 与 Simscape 轨迹对照
-python _multidof_compare.py
-```
-
-```matlab
-% MATLAB 侧：URDF → Simscape → harness → 与解析对照
-cd matlab2609/simscape
-rerun_after_density      % 一键重放全部基线，末尾打印 RERUN_ALL_OK
-```
-
+> **重跑**：`python _multidof_conditions.py`（三工况）· `matlab2609/simscape/rerun_after_density`（一键重放全部基线）。
 > ⚠️ URDF 是 Simscape 模型参数的唯一来源，而 `smimport` 会把块参数**烤进 `.slx`**；
-> 改密度表 / URDF 后必须**重跑 `smimport`**（即跑上面的 `rerun_after_density`），
-> 只重生成 URDF 是不够的。`-sd` 必须指到 `matlab2609/simscape`（URDF 里 STL 用相对路径）。
-
-## 关于源文件
-
-源文件是 SolidWorks 导出的 **STEP 文件** `“林-Ⅰ”髋关节外骨骼机器人开发平台V0_1_1.stp`（130.4 MB），
-**不入库**——本仓库只放**代码 + 文档 + 报告**以及解析它的脚本与结论；
-STL 网格、`.slx` 模型与生成图同样不入库（见 `.gitignore`），
-`docs/assets/` 下仅保留 README 展示用的少量图片与 GIF。
-
-（`matlab2609/solidworks/` 是早期用 SolidWorks 原生质量属性做过一次**基准对账**的产物，
-主链路一律走 `.stp` 解析 → URDF → Simscape，不依赖 SolidWorks。）
+> 改密度表 / URDF 后必须重跑 `smimport`，只重生成 URDF 是不够的。
