@@ -1,7 +1,7 @@
-# 髋关节外骨骼 · 动力学建模（CAD → Simscape Multibody）
+# 髋关节外骨骼 · 动力学建模（STEP → Simscape Multibody）
 
-把**自己设计的外骨骼 CAD 装配体**做成可仿真的多刚体模型，并跑通
-**CAD → 质量属性 → URDF → Simscape Multibody ↔ 解析动力学** 整条链路。
+把外骨骼的 **STEP 装配体**（`“林-Ⅰ”髋关节外骨骼机器人开发平台V0_1_1.stp`，130.4 MB）做成可仿真的
+多刚体模型，并跑通 **STEP(.stp) → 几何/质量属性 → URDF → Simscape Multibody ↔ 解析动力学** 整条链路。
 
 - **动力学**：拉格朗日刚体动力学 `M(q)q̈ + C(q,q̇)q̇ + G(q) = Q_ext`，关节力矩用滑窗估计
   （公式形式沿用论文；本仓库只做自己模型的建模与链路打通）。
@@ -14,8 +14,8 @@
 
 ![模型渲染](docs/assets/model_render.png)
 
-真实装配体 STEP 导出的可视化网格（髋部固定段 + 左右腿各 3 段）。
-`<inertial>` 惯性参数与图里的 `<visual>` 网格**同源**——都来自 STEP 的体积积分，
+直接从 `.stp` 装配体生成的可视化网格（髋部固定段 + 左右腿各 3 段）。
+`<inertial>` 惯性参数与图里的 `<visual>` 网格**同源**——都来自同一个 STEP 的体积积分，
 所以**你在图上看到的几何，就是动力学里用的几何**。
 
 ## 自由度与位姿
@@ -47,7 +47,7 @@
 
 ## 质量属性
 
-模型的质量 / 惯量全部由 **CAD 几何体积 × 密度表** 推出（`exo2609/geometry.py`），不依赖实物称重。
+模型的质量 / 惯量全部由 **STEP 几何体积 × 密度表** 推出（`exo2609/geometry.py`），不依赖实物称重。
 
 | 段 | 质量 (kg) |
 |---|---|
@@ -121,7 +121,12 @@ rerun_after_density      % 一键重放全部基线，末尾打印 RERUN_ALL_OK
 > 改密度表 / URDF 后必须**重跑 `smimport`**（即跑上面的 `rerun_after_density`），
 > 只重生成 URDF 是不够的。`-sd` 必须指到 `matlab2609/simscape`（URDF 里 STL 用相对路径）。
 
-## 关于 CAD
+## 关于源文件
 
-本仓库只放**代码 + 文档 + 报告**，CAD 源文件（`.SLDPRT`/`.SLDASM`）、STL 网格、
-`.slx` 模型与生成图均不入库（见 `.gitignore`）；`docs/assets/` 下是 README 展示用的少量图片与 GIF。
+源文件是 SolidWorks 导出的 **STEP 文件** `“林-Ⅰ”髋关节外骨骼机器人开发平台V0_1_1.stp`（130.4 MB），
+**不入库**——本仓库只放**代码 + 文档 + 报告**以及解析它的脚本与结论；
+STL 网格、`.slx` 模型与生成图同样不入库（见 `.gitignore`），
+`docs/assets/` 下仅保留 README 展示用的少量图片与 GIF。
+
+（`matlab2609/solidworks/` 是早期用 SolidWorks 原生质量属性做过一次**基准对账**的产物，
+主链路一律走 `.stp` 解析 → URDF → Simscape，不依赖 SolidWorks。）
