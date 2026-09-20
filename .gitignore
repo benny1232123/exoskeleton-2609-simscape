@@ -51,3 +51,14 @@ __pycache__/
 .workbuddy/
 _upload_list.txt
 _tidy_plan_tmp.txt
+_gh_blob_cache.json
+
+# ---- README 展示资产：显式放行（覆盖上面的 *.png / *.gif）----
+!docs/assets/*.png
+!docs/assets/*.gif
+
+# ---- 发布 / 会话级临时工具（不入库）----
+_gh_upload.py
+_gh_blob_cache.json
+_git*.txt
+*_run.txt
