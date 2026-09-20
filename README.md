@@ -104,18 +104,3 @@
 | **拆段回归**（锁死 `abduct` 后对照） | 末态最大差 | **1.023e-08** ✅ |
 
 ![4-DOF：Simscape vs 解析](docs/assets/verify_multidof.png)
-
----
-
-## 目录结构
-
-```
-exo2609/            STEP 解析：几何 / 质量属性 + 解析动力学
-matlab2609/         Simscape Multibody 侧
-  simscape/         URDF、导入脚本、harness、对照脚本、plant_*.json
-  solidworks/       质量预算 / 称重清单
-dynamics_model/     早期 STEP 解析与双髋动力学探索
-forensics/          取证探针与原始报告（step / joints / mass / solidworks / tools）
-papers/             参考文献（建模公式来源那篇已入库）
-docs/assets/        README 展示用图与 GIF
-```
