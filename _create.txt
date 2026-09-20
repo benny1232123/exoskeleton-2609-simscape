@@ -1,5 +1,0 @@
-﻿EXIT=0
-https://github.com/benny1232123/exoskeleton-2609-simscape
-
---- verify ---
-
