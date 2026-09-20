@@ -29,14 +29,11 @@
 | `hip` | 髋关节屈伸 | ∥ 全局 Y 轴 |
 | `abduct` | 腿部横向内收 / 外展 | ⊥ 髋轴（沿腿纵向摆） |
 
-第 3 段的导轨滑块行程只有 **2 mm**（装配间隙），按固定关节处理，不建模为自由度。
-
 ## 运动仿真
 
 ### 4-DOF 自由落体
 
-`T = 0` 自由落体，重力自然驱动，4 个自由度全部被激励（`abduct` 摆幅 **0.407 / 0.428 rad**，
-不接近 0 —— 说明第 4 个自由度确实参与了运动，不是退化的假对照）：
+`T = 0` 自由落体，重力自然驱动（`abduct` 摆幅 **0.407 / 0.428 rad**）：
 
 ![4-DOF 自由落体](docs/assets/multidof_drop.gif)
 
@@ -122,7 +119,3 @@ forensics/          取证探针与原始报告（step / joints / mass / solidwo
 papers/             参考文献（建模公式来源那篇已入库）
 docs/assets/        README 展示用图与 GIF
 ```
-
-> **重跑**：`python _multidof_conditions.py`（三工况）· `matlab2609/simscape/rerun_after_density`（一键重放全部基线）。
-> ⚠️ URDF 是 Simscape 模型参数的唯一来源，而 `smimport` 会把块参数**烤进 `.slx`**；
-> 改密度表 / URDF 后必须重跑 `smimport`，只重生成 URDF 是不够的。
